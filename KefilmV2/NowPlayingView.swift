@@ -27,8 +27,6 @@ struct NowPlayingView: View {
         }
             
     }
-    
-        
 }
 
 struct NowPlayingView_Previews: PreviewProvider {
