@@ -15,6 +15,7 @@
 		B95FF4E4267B480500335FD5 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4E3267B480500335FD5 /* MovieModel.swift */; };
 		B95FF4E6267B6BDF00335FD5 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4E5267B6BDF00335FD5 /* MovieCardView.swift */; };
 		B95FF4E8267B79B500335FD5 /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4E7267B79B500335FD5 /* NowPlayingView.swift */; };
+		B95FF4EE267BD1D100335FD5 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = B95FF4ED267BD1D100335FD5 /* SwiftUIPager */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95FF4EE267BD1D100335FD5 /* SwiftUIPager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,9 @@
 			dependencies = (
 			);
 			name = KefilmV2;
+			packageProductDependencies = (
+				B95FF4ED267BD1D100335FD5 /* SwiftUIPager */,
+			);
 			productName = KefilmV2;
 			productReference = B95FF4D0267B43FB00335FD5 /* KefilmV2.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +128,9 @@
 				Base,
 			);
 			mainGroup = B95FF4C7267B43FB00335FD5;
+			packageReferences = (
+				B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+			);
 			productRefGroup = B95FF4D1267B43FB00335FD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,6 +367,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B95FF4ED267BD1D100335FD5 /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B95FF4C8267B43FB00335FD5 /* Project object */;
 }

@@ -11,36 +11,36 @@ struct MovieCardView: View {
     var imageURL: String
     var name: String
     var body: some View {
-        VStack {
-                AsyncImage(url: URL(string: imageURL)) { image in
-                    image
-                        .centerCropped()
-                        .cornerRadius(24)
-                } placeholder: {
-                    Rectangle()
-                        .fill(.gray)
-                }
-                
-                Text(name)
-                    .font(.system(size: 20))
-                    .foregroundColor(.white)
-                    .padding(.bottom,16)
-        }
-        .padding(.leading,24)
-        .padding(.trailing,24)
-        .padding(.top,8)
-        .background(AsyncImage(url: URL(string: imageURL)) { image in
-            image
-                .resizable()
-                .ignoresSafeArea()
-                //.scaleEffect(1.3)
-                .blur(radius: 20)
-                
-        } placeholder: {
-            Rectangle()
-                .fill(.gray)
-        })
-        .frame(width: UIScreen.main.bounds.width)
+            VStack {
+                    AsyncImage(url: URL(string: imageURL)) { image in
+                        image
+                            .centerCropped()
+                            .cornerRadius(24)
+                    } placeholder: {
+                        Rectangle()
+                            .fill(.gray)
+                    }
+                    
+                    Text(name)
+                        .font(.system(size: 20))
+                        .foregroundColor(.white)
+                        .padding(.bottom,16)
+            }
+            .padding(.leading,24)
+            .padding(.trailing,24)
+            .padding(.top,8)
+            .background(AsyncImage(url: URL(string: imageURL)) { image in
+                image
+                    .resizable()
+                    .scaleEffect(1.4)
+                    .blur(radius: 20)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .clipped()
+            } placeholder: {
+                Rectangle()
+                    .fill(.gray)
+            })
+            .frame(width: UIScreen.main.bounds.width)
     }
 }
 
