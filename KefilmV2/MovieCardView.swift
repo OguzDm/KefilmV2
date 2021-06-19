@@ -10,12 +10,16 @@ import SwiftUI
 struct MovieCardView: View {
     var imageURL: String
     var name: String
+    @State private var showingSheet = false
     var body: some View {
             VStack {
                     AsyncImage(url: URL(string: imageURL)) { image in
                         image
                             .centerCropped()
                             .cornerRadius(24)
+                            .onTapGesture {
+                                showingSheet.toggle()
+                            }
                     } placeholder: {
                         Rectangle()
                             .fill(.gray)
@@ -25,6 +29,9 @@ struct MovieCardView: View {
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                         .padding(.bottom,16)
+            }
+            .sheet(isPresented: $showingSheet) {
+            MovieDetailView()
             }
             .padding(.leading,24)
             .padding(.trailing,24)

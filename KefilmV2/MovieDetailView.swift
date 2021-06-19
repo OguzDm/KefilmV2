@@ -12,11 +12,11 @@ struct MovieDetailView: View {
         VStack {
             HStack(spacing:0) {
                 VStack {
-                    Text("90")
+                    Text("100")
                         .foregroundColor(.green)
-                        .padding(.all, 3)
+                        .padding(.all, 4)
                         .overlay(
-                      RoundedRectangle(cornerRadius: 6)
+                      RoundedRectangle(cornerRadius: 4)
                         .stroke()
                         .fill(.green)
                         )
@@ -30,37 +30,38 @@ struct MovieDetailView: View {
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
                     Text("10000000")
                 }
-                .frame(width:UIScreen.main.bounds.width - 300)
+                .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack {
                     Image("wick")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 300)
+                        .frame(width: UIScreen.main.bounds.width / (3/2))
                         .cornerRadius(96, corners: .bottomLeft)
                         .ignoresSafeArea()
                 }
-                .frame(width: 300)
+                .frame(width: UIScreen.main.bounds.width / (3/2))
             }.frame(width: UIScreen.main.bounds.width)
             HStack {
                 VStack{
                 }
-                .frame(width:UIScreen.main.bounds.width - 300)
+                .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack(spacing:0) {
                     Text("John Wick 3: Parabellum")
                         .font(.system(size: 20))
-                        .frame(width: 300,alignment: .leading)
+                        .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
+                        .padding(.top,16)
                     Text("Action Drama Mystery")
                         .font(.system(size: 12))
-                        .foregroundColor(.black).opacity(0.5)
-                        .frame(width: 300,alignment: .leading)
+                        .foregroundColor(.gray).opacity(0.5)
+                        .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                     Text("Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.")
                         .multilineTextAlignment(.leading)
                         .font(.system(size: 14))
-                        .frame(width: 300,alignment: .leading)
+                        .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                 }
-                .frame(width: 300)
+                .frame(width: UIScreen.main.bounds.width / (3/2))
             }
             Spacer()
         }
