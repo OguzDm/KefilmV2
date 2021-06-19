@@ -28,9 +28,9 @@ struct MovieDetailView: View {
                     Text("1h 46m")
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-                    Text("1000000")
+                    Text("10000000")
                 }
-                .frame(width:UIScreen.main.bounds.width - 300,height: 450)
+                .frame(width:UIScreen.main.bounds.width - 300)
                 VStack {
                     Image("wick")
                         .resizable()
@@ -39,8 +39,29 @@ struct MovieDetailView: View {
                         .cornerRadius(96, corners: .bottomLeft)
                         .ignoresSafeArea()
                 }
-                .frame(width: 300, height: 450)
-            }.frame(width: UIScreen.main.bounds.width, height: 450, alignment: .top)
+                .frame(width: 300)
+            }.frame(width: UIScreen.main.bounds.width)
+            HStack {
+                VStack{
+                }
+                .frame(width:UIScreen.main.bounds.width - 300)
+                VStack(spacing:0) {
+                    Text("John Wick 3: Parabellum")
+                        .font(.system(size: 20))
+                        .frame(width: 300,alignment: .leading)
+                        .padding(.bottom,8)
+                    Text("Action Drama Mystery")
+                        .font(.system(size: 12))
+                        .foregroundColor(.black).opacity(0.5)
+                        .frame(width: 300,alignment: .leading)
+                        .padding(.bottom,8)
+                    Text("Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.")
+                        .multilineTextAlignment(.leading)
+                        .font(.system(size: 14))
+                        .frame(width: 300,alignment: .leading)
+                }
+                .frame(width: 300)
+            }
             Spacer()
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
@@ -65,5 +86,19 @@ struct RoundedCorner: Shape {
 extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+struct TextView: UIViewRepresentable {
+    var text: String
+    
+    func makeUIView(context: Context) -> UITextView {
+        let textView = UITextView()
+        textView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
+        textView.textAlignment = .justified
+        return textView
+    }
+    
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        uiView.text = text
     }
 }
