@@ -16,6 +16,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Now Playing",systemImage: "film")
                 }
+            PopularMoviesView()
+                .tabItem{
+                    Label("Popular",systemImage: "star.fill")
+                }
         }
         .accentColor(.white)
         .onAppear() {

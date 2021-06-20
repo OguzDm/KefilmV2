@@ -17,6 +17,8 @@
 		B95FF4E8267B79B500335FD5 /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4E7267B79B500335FD5 /* NowPlayingView.swift */; };
 		B95FF4EE267BD1D100335FD5 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = B95FF4ED267BD1D100335FD5 /* SwiftUIPager */; };
 		B9821F0F267E883800D4F53B /* PopularMovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821F0E267E883800D4F53B /* PopularMovieCard.swift */; };
+		B99D551E267F46BC002D9715 /* PopularMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99D551D267F46BC002D9715 /* PopularMoviesView.swift */; };
+		B99D5521267F5FE0002D9715 /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B99D5520267F5FE0002D9715 /* SwiftUIVisualEffects */; };
 		B9C8D223267D4A470013AF97 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8D222267D4A470013AF97 /* MovieDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,7 @@
 		B95FF4E5267B6BDF00335FD5 /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
 		B95FF4E7267B79B500335FD5 /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
 		B9821F0E267E883800D4F53B /* PopularMovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCard.swift; sourceTree = "<group>"; };
+		B99D551D267F46BC002D9715 /* PopularMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesView.swift; sourceTree = "<group>"; };
 		B9C8D222267D4A470013AF97 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B95FF4EE267BD1D100335FD5 /* SwiftUIPager in Frameworks */,
+				B99D5521267F5FE0002D9715 /* SwiftUIVisualEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +79,7 @@
 				B95FF4E7267B79B500335FD5 /* NowPlayingView.swift */,
 				B9C8D222267D4A470013AF97 /* MovieDetailView.swift */,
 				B9821F0E267E883800D4F53B /* PopularMovieCard.swift */,
+				B99D551D267F46BC002D9715 /* PopularMoviesView.swift */,
 			);
 			path = KefilmV2;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			name = KefilmV2;
 			packageProductDependencies = (
 				B95FF4ED267BD1D100335FD5 /* SwiftUIPager */,
+				B99D5520267F5FE0002D9715 /* SwiftUIVisualEffects */,
 			);
 			productName = KefilmV2;
 			productReference = B95FF4D0267B43FB00335FD5 /* KefilmV2.app */;
@@ -136,6 +142,7 @@
 			mainGroup = B95FF4C7267B43FB00335FD5;
 			packageReferences = (
 				B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				B99D551F267F5FE0002D9715 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */,
 			);
 			productRefGroup = B95FF4D1267B43FB00335FD5 /* Products */;
 			projectDirPath = "";
@@ -168,6 +175,7 @@
 				B95FF4E6267B6BDF00335FD5 /* MovieCardView.swift in Sources */,
 				B95FF4D6267B43FB00335FD5 /* ContentView.swift in Sources */,
 				B95FF4D4267B43FB00335FD5 /* KefilmV2App.swift in Sources */,
+				B99D551E267F46BC002D9715 /* PopularMoviesView.swift in Sources */,
 				B95FF4E2267B447600335FD5 /* Service.swift in Sources */,
 				B9821F0F267E883800D4F53B /* PopularMovieCard.swift in Sources */,
 				B9C8D223267D4A470013AF97 /* MovieDetailView.swift in Sources */,
@@ -385,6 +393,14 @@
 				minimumVersion = 2.3.0;
 			};
 		};
+		B99D551F267F5FE0002D9715 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucasbrown/swiftui-visual-effects.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -392,6 +408,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
+		};
+		B99D5520267F5FE0002D9715 /* SwiftUIVisualEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B99D551F267F5FE0002D9715 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */;
+			productName = SwiftUIVisualEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -17,6 +17,8 @@ struct MovieResults: Codable {
     let id: Int
     let poster_path: String
     let original_title: String
+    let backdrop_path: String?
+    let popularity: Double
 }
 
 

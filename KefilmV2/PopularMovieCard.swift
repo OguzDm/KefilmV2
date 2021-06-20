@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIVisualEffects
 
 struct PopularMovieCard: View {
     
@@ -13,25 +14,37 @@ struct PopularMovieCard: View {
         static let cardSize: CGFloat = 225
         static let nameViewSize: CGFloat = 50
     }
+    var name: String
+    var imageURL: String
+    var popularity: String
     var body: some View {
         
         ZStack {
-            Image("raya")
-                .resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width - 32, height: Constants.cardSize, alignment: .center)
-                .clipped()
-                .cornerRadius(16)
+            
+            AsyncImage(url: URL(string: imageURL)) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width - 32, height: Constants.cardSize, alignment: .center)
+                    .clipped()
+                    .cornerRadius(16)
+                
+            } placeholder: {
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.gray.opacity(0.7))
+            }
+
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                        .frame(width: 75, height: 35)
-                       .background(.ultraThinMaterial,in: RoundedCorner(radius: 8, corners: .allCorners))
+                       .vibrancyEffect()
+                       .vibrancyEffectStyle(.tertiaryFill)
                 HStack(spacing: 4){
                     Image("trending")
                         .resizable()
                         .frame(width:25,height: 25)
                         .foregroundColor(.orange)
-                    Text("54232")
+                    Text(popularity)
                         .font(.caption)
                         .foregroundColor(.white)
                 }
@@ -42,10 +55,10 @@ struct PopularMovieCard: View {
             ZStack {
                 Rectangle()
                     .cornerRadius(16, corners: [.bottomLeft,.bottomRight])
-                    .background(.ultraThinMaterial,in: RoundedCorner(radius: 16, corners:[.bottomLeft,.bottomRight] ))
-                Text("Raya and Last Dragon")
+                    .vibrancyEffect()
+                    .vibrancyEffectStyle(.tertiaryFill)
+                Text(name)
                     .font(.title3)
-                    //.background(.red)
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 70,alignment: .leading)
             }
@@ -58,6 +71,6 @@ struct PopularMovieCard: View {
 
 struct PopularMovieCard_Previews: PreviewProvider {
     static var previews: some View {
-        PopularMovieCard()
+        PopularMovieCard(name: "Raya and Last Dragon",imageURL: "",popularity: "5423")
     }
 }

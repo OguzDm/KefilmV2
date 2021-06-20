@@ -10,11 +10,10 @@ import SwiftUIPager
 struct NowPlayingView: View {
     @StateObject var service = Service()
     @StateObject var page: Page = .first()
-    @State var data = Array(0..<5)
     private let gridItems = [GridItem(.fixed(500))]
     var body: some View {
         
-        Pager(page: self.page, data: self.data,id: \.self) { index in
+        Pager(page: self.page, data: Array(0..<service.results.count),id: \.self) { index in
             if service.results.count > 0 {
                 MovieCardView(imageURL: Service.baseImageURL + service.results[index].poster_path, name: service.results[index].original_title)
             }

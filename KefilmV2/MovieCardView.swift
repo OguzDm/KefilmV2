@@ -22,7 +22,7 @@ struct MovieCardView: View {
                             }
                     } placeholder: {
                         Rectangle()
-                            .fill(.gray)
+                            .fill(.gray.opacity(0.7))
                     }
                     
                     Text(name)
@@ -45,7 +45,7 @@ struct MovieCardView: View {
                     .clipped()
             } placeholder: {
                 Rectangle()
-                    .fill(.gray)
+                    .fill(.gray.opacity(0.7))
             })
             .frame(width: UIScreen.main.bounds.width)
     }
