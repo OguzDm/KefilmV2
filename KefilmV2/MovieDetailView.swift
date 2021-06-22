@@ -13,6 +13,7 @@ struct MovieDetailView: View {
             HStack(spacing:0) {
                 VStack {
                     Text("100")
+                        .font(.title3)
                         .foregroundColor(.green)
                         .padding(.all, 4)
                         .overlay(
@@ -23,12 +24,15 @@ struct MovieDetailView: View {
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
                     Text("2019")
+                        .font(.title3)
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
                     Text("1h 46m")
+                        .font(.title3)
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
                     Text("10000000")
+                        .font(.title3)
                 }
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack {
@@ -47,18 +51,18 @@ struct MovieDetailView: View {
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack(spacing:0) {
                     Text("John Wick 3: Parabellum")
-                        .font(.system(size: 20))
+                        .font(.title2)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                         .padding(.top,16)
                     Text("Action Drama Mystery")
-                        .font(.system(size: 12))
+                        .font(.subheadline)
                         .foregroundColor(.gray).opacity(0.5)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                     Text("Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.")
                         .multilineTextAlignment(.leading)
-                        .font(.system(size: 14))
+                        .font(.body)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                 }
                 .frame(width: UIScreen.main.bounds.width / (3/2))
@@ -71,7 +75,10 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView()
+        Group {
+            MovieDetailView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
 struct RoundedCorner: Shape {

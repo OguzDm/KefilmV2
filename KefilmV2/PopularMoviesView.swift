@@ -15,7 +15,7 @@ struct PopularMoviesView: View {
         
         ScrollView(showsIndicators:false){
             if service.results.count > 0 {
-                LazyVGrid(columns: columns)  {
+                LazyVGrid(columns: columns, spacing: 16)  {
                     ForEach(0..<service.results.count,id:\.self) { index in
                         let imageEndPoint = service.results[index].backdrop_path ?? service.results[index].poster_path
                             
@@ -24,7 +24,6 @@ struct PopularMoviesView: View {
                                          popularity: String(Int(service.results[index].popularity)))
                             .onAppear {
                                 if index == service.results.count - 2 {
-                                    //service.currentPage += 1
                                     service.fetchMovies(endpoint: .popular)
                                 }
                             }

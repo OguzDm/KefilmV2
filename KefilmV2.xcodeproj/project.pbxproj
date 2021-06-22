@@ -20,6 +20,7 @@
 		B99D551E267F46BC002D9715 /* PopularMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99D551D267F46BC002D9715 /* PopularMoviesView.swift */; };
 		B99D5521267F5FE0002D9715 /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B99D5520267F5FE0002D9715 /* SwiftUIVisualEffects */; };
 		B9C8D223267D4A470013AF97 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8D222267D4A470013AF97 /* MovieDetailView.swift */; };
+		B9CF28B1267FBEE20098B1E8 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CF28B0267FBEE20098B1E8 /* MovieDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		B9821F0E267E883800D4F53B /* PopularMovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieCard.swift; sourceTree = "<group>"; };
 		B99D551D267F46BC002D9715 /* PopularMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesView.swift; sourceTree = "<group>"; };
 		B9C8D222267D4A470013AF97 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		B9CF28B0267FBEE20098B1E8 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				B9C8D222267D4A470013AF97 /* MovieDetailView.swift */,
 				B9821F0E267E883800D4F53B /* PopularMovieCard.swift */,
 				B99D551D267F46BC002D9715 /* PopularMoviesView.swift */,
+				B9CF28B0267FBEE20098B1E8 /* MovieDetailViewModel.swift */,
 			);
 			path = KefilmV2;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				B95FF4D6267B43FB00335FD5 /* ContentView.swift in Sources */,
 				B95FF4D4267B43FB00335FD5 /* KefilmV2App.swift in Sources */,
 				B99D551E267F46BC002D9715 /* PopularMoviesView.swift in Sources */,
+				B9CF28B1267FBEE20098B1E8 /* MovieDetailViewModel.swift in Sources */,
 				B95FF4E2267B447600335FD5 /* Service.swift in Sources */,
 				B9821F0F267E883800D4F53B /* PopularMovieCard.swift in Sources */,
 				B9C8D223267D4A470013AF97 /* MovieDetailView.swift in Sources */,
