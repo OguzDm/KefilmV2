@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    @StateObject var viewModel = MovieDetailViewModel()
+    let movieID: Int
     var body: some View {
         VStack {
             HStack(spacing:0) {
                 VStack {
-                    Text("100")
+                    Text("\(viewModel.rating)")
                         .font(.title3)
                         .foregroundColor(.green)
                         .padding(.all, 4)
@@ -23,25 +25,32 @@ struct MovieDetailView: View {
                         )
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-                    Text("2019")
+                    Text("\(viewModel.year)")
                         .font(.title3)
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-                    Text("1h 46m")
+                    Text("\(viewModel.runtime)")
                         .font(.title3)
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-                    Text("10000000")
+                    Text("$\(viewModel.budget)")
                         .font(.title3)
                 }
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack {
-                    Image("wick")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: UIScreen.main.bounds.width / (3/2))
-                        .cornerRadius(96, corners: .bottomLeft)
-                        .ignoresSafeArea()
+                    
+                    AsyncImage(url: URL(string: Constants.baseImageURL + viewModel.poster)) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: UIScreen.main.bounds.width / (3/2))
+                            .cornerRadius(96, corners: .bottomLeft)
+                            .ignoresSafeArea()
+                    } placeholder: {
+                        Rectangle()
+                            .fill(.gray.opacity(0.5))
+                            .frame(width: UIScreen.main.bounds.width / (3/2))
+                    }
                 }
                 .frame(width: UIScreen.main.bounds.width / (3/2))
             }.frame(width: UIScreen.main.bounds.width)
@@ -50,17 +59,17 @@ struct MovieDetailView: View {
                 }
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack(spacing:0) {
-                    Text("John Wick 3: Parabellum")
+                    Text(viewModel.title)
                         .font(.title2)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                         .padding(.top,16)
-                    Text("Action Drama Mystery")
+                    Text(viewModel.genres[0])
                         .font(.subheadline)
                         .foregroundColor(.gray).opacity(0.5)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
-                    Text("Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.")
+                    Text(viewModel.overview)
                         .multilineTextAlignment(.leading)
                         .font(.body)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
@@ -69,6 +78,9 @@ struct MovieDetailView: View {
             }
             Spacer()
         }
+        .onAppear {
+            viewModel.fetchMovieDetail(id: movieID)
+        }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
     }
 }
@@ -76,7 +88,7 @@ struct MovieDetailView: View {
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MovieDetailView()
+            MovieDetailView(movieID: 615457)
                 .preferredColorScheme(.dark)
         }
     }

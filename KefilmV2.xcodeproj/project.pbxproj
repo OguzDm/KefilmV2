@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B94BB1432684ACB1000B3517 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94BB1422684ACB1000B3517 /* Constants.swift */; };
+		B94BB1452684AE9D000B3517 /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94BB1442684AE9D000B3517 /* MovieDetailModel.swift */; };
 		B95FF4D4267B43FB00335FD5 /* KefilmV2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4D3267B43FB00335FD5 /* KefilmV2App.swift */; };
 		B95FF4D6267B43FB00335FD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4D5267B43FB00335FD5 /* ContentView.swift */; };
 		B95FF4D8267B43FC00335FD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95FF4D7267B43FC00335FD5 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B94BB1422684ACB1000B3517 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B94BB1442684AE9D000B3517 /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
 		B95FF4D0267B43FB00335FD5 /* KefilmV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KefilmV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95FF4D3267B43FB00335FD5 /* KefilmV2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KefilmV2App.swift; sourceTree = "<group>"; };
 		B95FF4D5267B43FB00335FD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,7 +75,10 @@
 		B95FF4D2267B43FB00335FD5 /* KefilmV2 */ = {
 			isa = PBXGroup;
 			children = (
+				B94BB1422684ACB1000B3517 /* Constants.swift */,
 				B95FF4E1267B447600335FD5 /* Service.swift */,
+				B9CF28B0267FBEE20098B1E8 /* MovieDetailViewModel.swift */,
+				B94BB1442684AE9D000B3517 /* MovieDetailModel.swift */,
 				B95FF4D3267B43FB00335FD5 /* KefilmV2App.swift */,
 				B95FF4D5267B43FB00335FD5 /* ContentView.swift */,
 				B95FF4D7267B43FC00335FD5 /* Assets.xcassets */,
@@ -82,7 +89,6 @@
 				B9C8D222267D4A470013AF97 /* MovieDetailView.swift */,
 				B9821F0E267E883800D4F53B /* PopularMovieCard.swift */,
 				B99D551D267F46BC002D9715 /* PopularMoviesView.swift */,
-				B9CF28B0267FBEE20098B1E8 /* MovieDetailViewModel.swift */,
 			);
 			path = KefilmV2;
 			sourceTree = "<group>";
@@ -174,6 +180,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B95FF4E8267B79B500335FD5 /* NowPlayingView.swift in Sources */,
+				B94BB1452684AE9D000B3517 /* MovieDetailModel.swift in Sources */,
+				B94BB1432684ACB1000B3517 /* Constants.swift in Sources */,
 				B95FF4E4267B480500335FD5 /* MovieModel.swift in Sources */,
 				B95FF4E6267B6BDF00335FD5 /* MovieCardView.swift in Sources */,
 				B95FF4D6267B43FB00335FD5 /* ContentView.swift in Sources */,

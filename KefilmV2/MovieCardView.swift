@@ -31,7 +31,7 @@ struct MovieCardView: View {
                         .padding(.bottom,16)
             }
             .sheet(isPresented: $showingSheet) {
-            MovieDetailView()
+                MovieDetailView(movieID: 615457)
             }
             .padding(.leading,24)
             .padding(.trailing,24)

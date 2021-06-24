@@ -20,7 +20,7 @@ struct PopularMoviesView: View {
                         let imageEndPoint = service.results[index].backdrop_path ?? service.results[index].poster_path
                             
                         PopularMovieCard(name: service.results[index].original_title,
-                                         imageURL: Service.baseImageURL + imageEndPoint,
+                                         imageURL: Constants.baseImageURL + imageEndPoint,
                                          popularity: String(Int(service.results[index].popularity)))
                             .onAppear {
                                 if index == service.results.count - 2 {

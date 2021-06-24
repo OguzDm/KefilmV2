@@ -9,9 +9,7 @@ import Foundation
 
 class Service : ObservableObject{
     
-    let apiKey = "417f143d5bdda6f95d3bacc9f9fe73a5"
-    let baseURL = "https://api.themoviedb.org/3/movie/"
-    static let baseImageURL = "https://image.tmdb.org/t/p/original"
+    
     @Published var results = [MovieResults]()
     
     var currentPage = 1
@@ -24,7 +22,7 @@ class Service : ObservableObject{
     func fetchMovies(endpoint : endpoint){
         
         
-        let requestString = baseURL + endpoint.rawValue + "?api_key=\(apiKey)" + "&page=\(currentPage)"
+        let requestString = Constants.baseURL + endpoint.rawValue + "?api_key=\(Constants.apiKey)" + "&page=\(currentPage)"
         guard let requestURL = URL(string: requestString) else {return}
         
         let task = URLSession.shared.dataTask(with: requestURL) { data, resp, err in
