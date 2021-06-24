@@ -11,10 +11,12 @@ struct MovieDetailView: View {
     @StateObject var viewModel = MovieDetailViewModel()
     let movieID: Int
     var body: some View {
+        ScrollView(showsIndicators:false){
         VStack {
+            if viewModel.title != "" {
             HStack(spacing:0) {
                 VStack {
-                    Text("\(viewModel.rating)")
+                    Text("\(Int(viewModel.rating))")
                         .font(.title3)
                         .foregroundColor(.green)
                         .padding(.all, 4)
@@ -47,9 +49,9 @@ struct MovieDetailView: View {
                             .cornerRadius(96, corners: .bottomLeft)
                             .ignoresSafeArea()
                     } placeholder: {
-                        Rectangle()
-                            .fill(.gray.opacity(0.5))
-                            .frame(width: UIScreen.main.bounds.width / (3/2))
+                            Rectangle()
+                            .fill(.regularMaterial)
+                            .frame(width: UIScreen.main.bounds.width * 2, height: UIScreen.main.bounds.height * 2,alignment: .center)
                     }
                 }
                 .frame(width: UIScreen.main.bounds.width / (3/2))
@@ -64,7 +66,7 @@ struct MovieDetailView: View {
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                         .padding(.top,16)
-                    Text(viewModel.genres[0])
+                    Text(viewModel.genres)
                         .font(.subheadline)
                         .foregroundColor(.gray).opacity(0.5)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
@@ -76,12 +78,14 @@ struct MovieDetailView: View {
                 }
                 .frame(width: UIScreen.main.bounds.width / (3/2))
             }
+            }
             Spacer()
         }
         .onAppear {
             viewModel.fetchMovieDetail(id: movieID)
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+        }
     }
 }
 

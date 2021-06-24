@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieCardView: View {
     var imageURL: String
     var name: String
+    var id : Int
     @State private var showingSheet = false
     var body: some View {
             VStack {
@@ -31,7 +32,7 @@ struct MovieCardView: View {
                         .padding(.bottom,16)
             }
             .sheet(isPresented: $showingSheet) {
-                MovieDetailView(movieID: 615457)
+                MovieDetailView(movieID: id)
             }
             .padding(.leading,24)
             .padding(.trailing,24)

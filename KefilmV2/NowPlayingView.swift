@@ -15,7 +15,7 @@ struct NowPlayingView: View {
         
         Pager(page: self.page, data: Array(0..<service.results.count),id: \.self) { index in
             if service.results.count > 0 {
-                MovieCardView(imageURL: Constants.baseImageURL + service.results[index].poster_path, name: service.results[index].original_title)
+                MovieCardView(imageURL: Constants.baseImageURL + service.results[index].poster_path, name: service.results[index].original_title, id: service.results[index].id)
             }
         }
         .interactive(rotation: true)

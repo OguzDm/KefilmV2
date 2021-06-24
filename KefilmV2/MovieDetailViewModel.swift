@@ -14,7 +14,7 @@ class MovieDetailViewModel: ObservableObject {
     @Published var poster = ""
     @Published var budget = 0
     @Published var year = ""
-    @Published var genres = [String]()
+    @Published var genres = ""
     @Published var rating = 0.0
     @Published var runtime = 0
     
@@ -34,8 +34,9 @@ class MovieDetailViewModel: ObservableObject {
                     self.overview = details.overview
                     let releaseYear = details.release_date.split(separator: "-").first?.description ?? "TBA"
                     self.year = releaseYear
-                    let genresString = details.genres.map{$0.name + " "}
-                    self.genres = genresString
+                    details.genres.forEach { genre in
+                        self.genres.append(genre.name + " ")
+                    }
                     self.rating = details.vote_average * 10
                     self.runtime = details.runtime
                 }
