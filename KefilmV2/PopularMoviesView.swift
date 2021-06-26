@@ -21,7 +21,7 @@ struct PopularMoviesView: View {
                             
                         PopularMovieCard(name: service.results[index].original_title,
                                          imageURL: Constants.baseImageURL + imageEndPoint,
-                                         popularity: String(Int(service.results[index].popularity)))
+                                         popularity: String(Int(service.results[index].popularity)), id: service.results[index].id)
                             .onAppear {
                                 if index == service.results.count - 2 {
                                     service.fetchMovies(endpoint: .popular)

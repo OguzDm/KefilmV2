@@ -18,12 +18,12 @@ struct MovieDetailView: View {
                 VStack {
                     Text("\(Int(viewModel.rating))")
                         .font(.title3)
-                        .foregroundColor(.green)
+                        .foregroundColor(returnColorFromRating(rating: Int(viewModel.rating)))
                         .padding(.all, 4)
                         .overlay(
                       RoundedRectangle(cornerRadius: 4)
                         .stroke()
-                        .fill(.green)
+                        .fill(returnColorFromRating(rating: Int(viewModel.rating)))
                         )
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
@@ -87,6 +87,16 @@ struct MovieDetailView: View {
             viewModel.fetchMovieDetail(id: movieID)
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+        }
+    }
+    func returnColorFromRating(rating: Int) -> Color {
+        switch rating {
+        case 0...50:
+            return .red
+        case 51...75:
+            return .yellow
+        default:
+            return .green
         }
     }
 }

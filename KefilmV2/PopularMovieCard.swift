@@ -17,6 +17,8 @@ struct PopularMovieCard: View {
     var name: String
     var imageURL: String
     var popularity: String
+    var id : Int
+    @State private var showingSheet = false
     var body: some View {
         
         ZStack {
@@ -27,6 +29,9 @@ struct PopularMovieCard: View {
                     .frame(width: UIScreen.main.bounds.width - 32, height: Constants.cardSize, alignment: .center)
                     .clipped()
                     .cornerRadius(16)
+                    .onTapGesture {
+                        showingSheet.toggle()
+                    }
                 
             } placeholder: {
                 RoundedRectangle(cornerRadius: 16)
@@ -69,12 +74,10 @@ struct PopularMovieCard: View {
             .frame(width: UIScreen.main.bounds.width - 32, height: Constants.nameViewSize)
             .padding(.top,Constants.cardSize - Constants.nameViewSize)
         }
+        .sheet(isPresented: $showingSheet) {
+            MovieDetailView(movieID: id)
+        }
         .frame(width: UIScreen.main.bounds.width - 32, height: Constants.cardSize, alignment: .center)
     }
 }
 
-struct PopularMovieCard_Previews: PreviewProvider {
-    static var previews: some View {
-        PopularMovieCard(name: "Raya and Last Dragon",imageURL: "",popularity: "5423")
-    }
-}
