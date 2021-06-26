@@ -66,6 +66,7 @@ struct MovieDetailView: View {
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                         .padding(.top,16)
+                        .textSelection(.enabled)
                     Text(viewModel.genres)
                         .font(.subheadline)
                         .foregroundColor(.gray).opacity(0.5)
@@ -75,6 +76,7 @@ struct MovieDetailView: View {
                         .multilineTextAlignment(.leading)
                         .font(.body)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
+                        .textSelection(.enabled)
                 }
                 .frame(width: UIScreen.main.bounds.width / (3/2))
             }

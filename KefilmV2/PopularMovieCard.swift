@@ -20,7 +20,6 @@ struct PopularMovieCard: View {
     var body: some View {
         
         ZStack {
-            
             AsyncImage(url: URL(string: imageURL)) { image in
                 image
                     .resizable()
@@ -65,6 +64,7 @@ struct PopularMovieCard: View {
                     .font(.title3)
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 70,alignment: .leading)
+                    .textSelection(.enabled)
             }
             .frame(width: UIScreen.main.bounds.width - 32, height: Constants.nameViewSize)
             .padding(.top,Constants.cardSize - Constants.nameViewSize)

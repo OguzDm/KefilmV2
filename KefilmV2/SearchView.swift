@@ -12,9 +12,7 @@ struct SearchView: View {
     @State var searchText = ""
     var body: some View {
         VStack{
-            TextField("Search", text: $searchText)
-                .textFieldStyle(.roundedBorder)
-                .padding()
+            SearchBarView(placeholder: "Search", text: $searchText)
             VStack{
                 List{
                     Text(searchText)
