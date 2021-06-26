@@ -30,6 +30,7 @@ struct MovieCardView: View {
                         .font(.system(size: 20))
                         .foregroundColor(.white)
                         .padding(.bottom,16)
+                        .textSelection(.enabled)
             }
             .sheet(isPresented: $showingSheet) {
                 MovieDetailView(movieID: id)
