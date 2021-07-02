@@ -83,8 +83,8 @@ struct MovieDetailView: View {
             }
             }
             ScrollView(.horizontal){
+                if !gallery.images.isEmpty {
                 HStack(spacing:12){
-                    if !gallery.images.isEmpty {
                         ForEach(gallery.images,id:\.self) { image in
                             AsyncImage(url:URL(string: Constants.baseImageURL + "/\(image.file_path)")) { image in
                                 image
@@ -97,15 +97,15 @@ struct MovieDetailView: View {
                             }
                         }
                     }
-                    else {
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                    }
                 }
-                .padding(.top,16)
-                .onAppear {
-                    gallery.fetchImages(with: movieID)
+                else {
+                    ProgressView()
+                        .progressViewStyle(.circular)
                 }
+            }
+            .padding(.top,16)
+            .onAppear {
+                gallery.fetchImages(with: movieID)
             }
             .frame(width: UIScreen.main.bounds.width, height: 225)
             Spacer()
