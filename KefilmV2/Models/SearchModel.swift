@@ -10,7 +10,7 @@ import Foundation
 struct SearchModel: Codable {
     let results: [SearchResults]
 }
-struct SearchResults: Codable {
+struct SearchResults: Codable, Hashable {
     let title: String
     let id: Int
 }

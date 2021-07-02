@@ -12,6 +12,7 @@ struct SearchBarView: UIViewRepresentable {
     
     let placeholder: String
     @Binding var text: String
+    @StateObject var viewModel = SearchViewModel()
     
     func updateUIView(_ uiView: UISearchBar, context: Context) {
         uiView.text = text

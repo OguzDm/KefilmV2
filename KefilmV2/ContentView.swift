@@ -20,11 +20,14 @@ struct ContentView: View {
                 .tabItem{
                     Label("Popular",systemImage: "star.fill")
                 }
+            SearchView()
+                .tabItem{
+                    Label("Search",systemImage: "magnifyingglass")
+                }
         }
         .accentColor(.white)
         .onAppear() {
-            UITabBar.appearance().backgroundColor = .black
-            
+            UITabBar.appearance().backgroundColor = .systemBackground
         }
         
     }

@@ -10,28 +10,31 @@ import SwiftUI
 struct SearchView: View {
     
     @State var searchText = ""
+    @StateObject var viewModel = SearchViewModel()
     var body: some View {
         VStack{
-            SearchBarView(placeholder: "Search", text: $searchText)
+            TextField("Start typing",
+                      text: $viewModel.query,
+                      onCommit: {
+                self.performSearch()
+            })
+                           .textFieldStyle(RoundedBorderTextFieldStyle())
             VStack{
-                List{
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
-                    Text(searchText)
+                if self.viewModel.searchResults.count > 0 {
+                    List{
+                        ForEach(self.viewModel.searchResults, id:\.self) { movie in
+                            Text(movie.title)
+                        }
+                    }
                 }
-                
             }
             Spacer()
             
         }
     }
+    func performSearch() {
+        viewModel.searchRequest()
+      }
 }
 
 struct SearchView_Previews: PreviewProvider {
