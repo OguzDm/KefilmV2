@@ -11,25 +11,31 @@ struct SearchView: View {
     
     @State var searchText = ""
     @StateObject var viewModel = SearchViewModel()
+    @State private var showingSheet = false
     var body: some View {
         VStack{
-            TextField("Start typing",
+            TextField("Search Movie",
                       text: $viewModel.query,
                       onCommit: {
                 self.performSearch()
             })
-                           .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             VStack{
                 if self.viewModel.searchResults.count > 0 {
                     List{
                         ForEach(self.viewModel.searchResults, id:\.self) { movie in
-                            Text(movie.title)
+                            Button(movie.title) {
+                                showingSheet.toggle()
+                            }
+                            .sheet(isPresented: $showingSheet) {
+                                        MovieDetailView(movieID: movie.id)
+                                    }
                         }
                     }
                 }
             }
             Spacer()
-            
         }
     }
     func performSearch() {
