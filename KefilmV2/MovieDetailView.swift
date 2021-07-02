@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieDetailView: View {
     @StateObject var viewModel = MovieDetailViewModel()
+    @StateObject var gallery = GalleryViewModel()
     let movieID: Int
     var body: some View {
         ScrollView(showsIndicators:false){
@@ -57,7 +58,7 @@ struct MovieDetailView: View {
                 .frame(width: UIScreen.main.bounds.width / (3/2))
             }.frame(width: UIScreen.main.bounds.width)
             HStack {
-                VStack{
+                VStack{             //Dummy VStack
                 }
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack(spacing:0) {
@@ -81,6 +82,32 @@ struct MovieDetailView: View {
                 .frame(width: UIScreen.main.bounds.width / (3/2))
             }
             }
+            ScrollView(.horizontal){
+                HStack(spacing:12){
+                    if !gallery.images.isEmpty {
+                        ForEach(gallery.images,id:\.self) { image in
+                            AsyncImage(url:URL(string: Constants.baseImageURL + "/\(image.file_path)")) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .cornerRadius(8)
+                            } placeholder: {
+                                Rectangle()
+                                    .fill(.gray)
+                            }
+                        }
+                    }
+                    else {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                    }
+                }
+                .padding(.top,16)
+                .onAppear {
+                    gallery.fetchImages(with: movieID)
+                }
+            }
+            .frame(width: UIScreen.main.bounds.width, height: 225)
             Spacer()
         }
         .onAppear {
