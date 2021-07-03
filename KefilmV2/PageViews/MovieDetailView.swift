@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieDetailView: View {
     @StateObject var viewModel = MovieDetailViewModel()
     @StateObject var gallery = GalleryViewModel()
+    @State var detailsLoaded = false
     let movieID: Int
     var body: some View {
         ScrollView(showsIndicators:false){
@@ -113,9 +114,11 @@ struct MovieDetailView: View {
         .onAppear {
             viewModel.fetchMovieDetail(id: movieID)
         }
+        .background(Color(UIColor.systemBackground))
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
         }
     }
+        
     func returnColorFromRating(rating: Int) -> Color {
         switch rating {
         case 0...50:

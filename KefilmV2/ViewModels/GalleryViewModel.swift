@@ -16,7 +16,7 @@ class GalleryViewModel: ObservableObject {
             do {
                 let images = try JSONDecoder().decode(GalleryModel.self, from: data)
                 DispatchQueue.main.async {
-                    self.images = images.backdrops
+                    self.images = images.posters
                 }
             }
             catch(let error) {

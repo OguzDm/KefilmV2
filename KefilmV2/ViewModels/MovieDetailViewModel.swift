@@ -17,6 +17,7 @@ class MovieDetailViewModel: ObservableObject {
     @Published var genres = ""
     @Published var rating = 0.0
     @Published var runtime = 0
+    @Published var model: MovieDetailModel?
     
     func fetchMovieDetail(id: Int) {
         guard let requestURL = URL(string: Constants.baseURL + "\(id)?api_key=" + Constants.apiKey) else {return}
@@ -28,6 +29,7 @@ class MovieDetailViewModel: ObservableObject {
             do {
                 let details = try JSONDecoder().decode(MovieDetailModel.self, from: data)
                 DispatchQueue.main.async {
+                    self.model = details
                     self.title = details.original_title
                     self.poster = details.poster_path
                     self.budget = details.budget
