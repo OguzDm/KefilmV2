@@ -8,7 +8,7 @@
 import Foundation
 
 struct GalleryModel: Codable{
-    let posters: [Poster]
+    let backdrops: [Poster]
 }
 struct Poster: Codable, Hashable{
     let file_path: String
