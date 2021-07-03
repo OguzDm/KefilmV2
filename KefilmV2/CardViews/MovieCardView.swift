@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieCardView: View {
     var imageURL: String
+    var backgroundImageURL: String
     var name: String
     var id : Int
     @State private var showingSheet = false
@@ -38,7 +39,7 @@ struct MovieCardView: View {
             .padding(.leading,24)
             .padding(.trailing,24)
             .padding(.top,8)
-            .background(AsyncImage(url: URL(string: imageURL)) { image in
+            .background(AsyncImage(url: URL(string: backgroundImageURL)) { image in
                 image
                     .resizable()
                     .scaleEffect(1.4)

@@ -43,7 +43,7 @@ struct MovieDetailView: View {
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack {
                     
-                    AsyncImage(url: URL(string: Constants.baseImageURL + viewModel.poster)) { image in
+                    AsyncImage(url: URL(string: Constants.baseLowResImageURL + viewModel.poster)) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -88,7 +88,7 @@ struct MovieDetailView: View {
                 if !gallery.images.isEmpty {
                 HStack(spacing:0){
                         ForEach(gallery.images,id:\.self) { image in
-                            AsyncImage(url:URL(string: Constants.baseImageURL + "/\(image.file_path)")) { image in
+                            AsyncImage(url:URL(string: Constants.baseLowResImageURL + "/\(image.file_path)")) { image in
                                 image
                                     .resizable()
                                     .scaledToFill()
