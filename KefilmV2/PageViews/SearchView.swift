@@ -17,14 +17,15 @@ struct SearchView: View {
         VStack{
             HStack {
                 Image(systemName: "magnifyingglass")
+                    .padding(.leading,8)
                 TextField("Search for a Movie",
                           text: $viewModel.query,
                           onCommit: {
                     self.performSearch()
                 })
                     .textFieldStyle(.plain)
-                    .padding(.top,4)
-                    .padding(.bottom,4)
+                    .padding(.top,8)
+                    .padding(.bottom,8)
             }
             .padding(.leading,12)
             .padding(.trailing,12)

@@ -46,7 +46,7 @@ struct MovieDetailView: View {
                     AsyncImage(url: URL(string: Constants.baseImageURL + viewModel.poster)) { image in
                         image
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
                             .frame(width: UIScreen.main.bounds.width / (3/2))
                             .cornerRadius(96, corners: .bottomLeft)
                             .ignoresSafeArea()
@@ -75,23 +75,26 @@ struct MovieDetailView: View {
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                     Text(viewModel.overview)
-                        .multilineTextAlignment(.leading)
                         .font(.body)
+                        .fixedSize(horizontal: false, vertical: true)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .textSelection(.enabled)
+                        
                 }
                 .frame(width: UIScreen.main.bounds.width / (3/2))
             }
             }
             ScrollView(.horizontal){
                 if !gallery.images.isEmpty {
-                HStack(spacing:12){
+                HStack(spacing:0){
                         ForEach(gallery.images,id:\.self) { image in
                             AsyncImage(url:URL(string: Constants.baseImageURL + "/\(image.file_path)")) { image in
                                 image
                                     .resizable()
                                     .scaledToFill()
                                     .cornerRadius(8)
+                                    .padding(.leading,8)
+                                    .frame(height:160)
                             } placeholder: {
                                 Rectangle()
                                     .fill(.gray)
@@ -109,13 +112,13 @@ struct MovieDetailView: View {
                 gallery.fetchImages(with: movieID)
             }
             .frame(width: UIScreen.main.bounds.width, height: 225)
-            Spacer()
+            //Spacer()
         }
         .onAppear {
             viewModel.fetchMovieDetail(id: movieID)
         }
         .background(Color(UIColor.systemBackground))
-        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+        .frame(width: UIScreen.main.bounds.width, height: .infinity)
         }
     }
         
