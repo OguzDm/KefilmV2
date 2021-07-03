@@ -2,6 +2,6 @@
 
 What I've done so far...
 
-| Now Playing   |  Movie Detail | Popular Movies|
-| ------------- | ------------- | ------------- |
-| ![Simulator Screen Shot - iPhone 11 - 2021-06-26 at 21 25 11](https://user-images.githubusercontent.com/33404285/123522298-1db16b00-d6c5-11eb-953b-a2670d726ab1.png)  | ![Simulator Screen Shot - iPhone 11 - 2021-06-26 at 21 26 45](https://user-images.githubusercontent.com/33404285/123522321-3b7ed000-d6c5-11eb-8f1b-3eef3c7e7dab.png)  | ![Simulator Screen Shot - iPhone 11 - 2021-06-26 at 21 27 21](https://user-images.githubusercontent.com/33404285/123522337-53565400-d6c5-11eb-924f-35d42630d42f.png)  |
+| Now Playing   |  Movie Detail | Popular Movies| Search |
+| ------------- | ------------- | ------------- | ------------- |
+| ![simulator_screenshot_82231ABB-DFD2-4250-AF43-94CF3CD8EA1D](https://user-images.githubusercontent.com/33404285/124353825-8773cc80-dc11-11eb-94dd-05cc218be8cd.png)  | ![simulator_screenshot_39B27566-74D6-40CF-96DF-1B3FFE085718](https://user-images.githubusercontent.com/33404285/124353797-614e2c80-dc11-11eb-95e0-d3c62bf2f12c.png)  | ![simulator_screenshot_AD3A51AD-133F-4B27-8F43-22AF8D1D6C98](https://user-images.githubusercontent.com/33404285/124353849-ab371280-dc11-11eb-9fef-87d5c23279bf.png)  | ![simulator_screenshot_0CCCE27A-0CB3-4F51-8B70-3A17654DED5F](https://user-images.githubusercontent.com/33404285/124353875-d91c5700-dc11-11eb-8d79-a69720bceb20.png) |
