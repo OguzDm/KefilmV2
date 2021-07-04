@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct MovieDetailModel: Codable {
     let original_title: String
@@ -45,7 +46,16 @@ struct MovieDetailModel: Codable {
         return timeText
     }
     
-    
+    var ratingColor: Color {
+        switch Int(vote_average * 10) {
+        case 0...50:
+            return .red
+        case 51...75:
+            return .yellow
+        default:
+            return .green
+        }
+    }
 }
 
 struct Genres: Codable {

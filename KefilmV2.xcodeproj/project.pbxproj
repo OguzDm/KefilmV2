@@ -31,6 +31,7 @@
 		B9B6E5B4268FC90600C52109 /* GenreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6E5B3268FC90600C52109 /* GenreCard.swift */; };
 		B9C8D223267D4A470013AF97 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8D222267D4A470013AF97 /* MovieDetailView.swift */; };
 		B9CF28B1267FBEE20098B1E8 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CF28B0267FBEE20098B1E8 /* MovieDetailViewModel.swift */; };
+		B9EBB812269269CA00EADC46 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EBB811269269CA00EADC46 /* Image+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		B9B6E5B3268FC90600C52109 /* GenreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCard.swift; sourceTree = "<group>"; };
 		B9C8D222267D4A470013AF97 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		B9CF28B0267FBEE20098B1E8 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		B9EBB811269269CA00EADC46 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				B97260E626864A6A00312F86 /* RoundedCorner.swift */,
 				B94BB1422684ACB1000B3517 /* Constants.swift */,
+				B9EBB811269269CA00EADC46 /* Image+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				B95FF4E8267B79B500335FD5 /* NowPlayingView.swift in Sources */,
 				B94BB1452684AE9D000B3517 /* MovieDetailModel.swift in Sources */,
 				B97260ED26864D6600312F86 /* SearchViewModel.swift in Sources */,
+				B9EBB812269269CA00EADC46 /* Image+Extensions.swift in Sources */,
 				B94BB1432684ACB1000B3517 /* Constants.swift in Sources */,
 				B97260EB26864BBA00312F86 /* SearchModel.swift in Sources */,
 				B92ECD3A26907D1000F585A8 /* ColorAndGenres.swift in Sources */,

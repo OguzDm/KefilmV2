@@ -20,12 +20,12 @@ struct MovieDetailView: View {
                 VStack {
                     Text("\(Int(viewModel.model!.rating))")
                         .font(.title3)
-                        .foregroundColor(returnColorFromRating(rating: Int(viewModel.model?.rating ?? 0)))
+                        .foregroundColor(viewModel.model!.ratingColor)
                         .padding(.all, 4)
                         .overlay(
                       RoundedRectangle(cornerRadius: 4)
                         .stroke()
-                        .fill(returnColorFromRating(rating: Int(viewModel.model?.rating ?? 0)))
+                        .fill(viewModel.model!.ratingColor)
                         )
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
@@ -121,25 +121,4 @@ struct MovieDetailView: View {
         .frame(width: UIScreen.main.bounds.width, height: .infinity)
         }
     }
-        
-    func returnColorFromRating(rating: Int) -> Color {
-        switch rating {
-        case 0...50:
-            return .red
-        case 51...75:
-            return .yellow
-        default:
-            return .green
-        }
-    }
 }
-
-struct MovieDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            MovieDetailView(movieID: 615457)
-                .preferredColorScheme(.dark)
-        }
-    }
-}
-

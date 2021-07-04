@@ -31,7 +31,6 @@ struct GenreCard_Previews: PreviewProvider {
     static var previews: some View {
         HStack(spacing:0){
             GenreCard(color: .blue, genre: "Action")
-            GenreCard(color: .pink, genre: "Family")
         }
         
     }

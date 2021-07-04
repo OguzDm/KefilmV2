@@ -53,15 +53,3 @@ struct MovieCardView: View {
             .frame(width: UIScreen.main.bounds.width)
     }
 }
-
-extension Image {
-    func centerCropped() -> some View {
-        GeometryReader { geo in
-            self
-            .resizable()
-            .scaledToFill()
-            .frame(width: geo.size.width, height: geo.size.height)
-            .clipped()
-        }
-    }
-}
