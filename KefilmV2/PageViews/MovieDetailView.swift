@@ -15,35 +15,35 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView(showsIndicators:false){
         VStack {
-            if viewModel.title != "" {
+            if viewModel.model != nil {
             HStack(spacing:0) {
                 VStack {
-                    Text("\(Int(viewModel.rating))")
+                    Text("\(Int(viewModel.model!.rating))")
                         .font(.title3)
-                        .foregroundColor(returnColorFromRating(rating: Int(viewModel.rating)))
+                        .foregroundColor(returnColorFromRating(rating: Int(viewModel.model?.rating ?? 0)))
                         .padding(.all, 4)
                         .overlay(
                       RoundedRectangle(cornerRadius: 4)
                         .stroke()
-                        .fill(returnColorFromRating(rating: Int(viewModel.rating)))
+                        .fill(returnColorFromRating(rating: Int(viewModel.model?.rating ?? 0)))
                         )
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-                    Text("\(viewModel.year)")
+                    Text(viewModel.model!.releaseYear)
                         .font(.title3)
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-                    Text("\(viewModel.runtime)")
+                    Text(viewModel.model!.runTimeText)
                         .font(.title3)
                     Divider()
                         .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-                    Text("$\(viewModel.budget)")
+                    Text("$\(viewModel.model!.budget ?? 0)")
                         .font(.title3)
                 }
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack {
                     
-                    AsyncImage(url: URL(string: Constants.baseLowResImageURL + viewModel.poster)) { image in
+                    AsyncImage(url: URL(string: Constants.baseLowResImageURL + viewModel.model!.poster_path)) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -63,18 +63,18 @@ struct MovieDetailView: View {
                 }
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
                 VStack(spacing:0) {
-                    Text(viewModel.title)
+                    Text(viewModel.model!.original_title)
                         .font(.title2)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
                         .padding(.top,16)
                         .textSelection(.enabled)
-                    Text(viewModel.genres)
+                    Text(viewModel.model!.genresText)
                         .font(.subheadline)
                         .foregroundColor(.gray).opacity(0.5)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
                         .padding(.bottom,8)
-                    Text(viewModel.overview)
+                    Text(viewModel.model!.overview)
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(width: UIScreen.main.bounds.width / (3/2),alignment: .leading)
