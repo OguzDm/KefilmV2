@@ -74,7 +74,7 @@ struct PopularMovieCard: View {
             .frame(width: UIScreen.main.bounds.width - 32, height: Constants.nameViewSize)
             .padding(.top,Constants.cardSize - Constants.nameViewSize)
         }
-        .sheet(isPresented: $showingSheet) {
+        .fullScreenCover(isPresented: $showingSheet) {
             MovieDetailView(movieID: id)
         }
         .frame(width: UIScreen.main.bounds.width - 32, height: Constants.cardSize, alignment: .center)

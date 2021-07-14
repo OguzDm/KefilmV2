@@ -33,7 +33,7 @@ struct MovieCardView: View {
                         .padding(.bottom,16)
                         .textSelection(.enabled)
             }
-            .sheet(isPresented: $showingSheet) {
+            .fullScreenCover(isPresented: $showingSheet) {
                 MovieDetailView(movieID: id)
             }
             .padding(.leading,24)

@@ -44,7 +44,7 @@ struct SearchView: View {
                             Button(movie.title) {
                                 showingSheet.toggle()
                             }
-                            .sheet(isPresented: $showingSheet) {
+                            .fullScreenCover(isPresented: $showingSheet) {
                                         MovieDetailView(movieID: movie.id)
                                     }
                         }
@@ -53,14 +53,8 @@ struct SearchView: View {
                 else {
                     ScrollView{
                         LazyVGrid(columns:gridItems) {
-                            ForEach(0...17,id:\.self) {id in
-                                GenreCard(color: ColorAndGenres().colors[id], genre: ColorAndGenres().genres[id])
-                                    .onTapGesture {
-                                        showingSheet.toggle()
-                                    }
-                                    .sheet(isPresented: $showingSheet) {
-                                        GenresView(id: ColorAndGenres().ids[id])
-                                            }
+                            ForEach(GENRES,id:\.self) {genre in
+                                GenreCard(color: genre.color, genre: genre.genre,id: genre.id)
                             }
                         }
                     }
