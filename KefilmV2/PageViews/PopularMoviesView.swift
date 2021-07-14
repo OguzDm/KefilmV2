@@ -14,7 +14,7 @@ struct PopularMoviesView: View {
     var body: some View {
         
         ScrollView(showsIndicators:false){
-            if service.results.count > 0 {
+            if !service.results.isEmpty {
                 LazyVGrid(columns: columns, spacing: 16)  {
                     ForEach(0..<service.results.count,id:\.self) { index in
                         let imageEndPoint = service.results[index].backdrop_path ?? service.results[index].poster_path

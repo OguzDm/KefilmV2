@@ -13,4 +13,5 @@ class Constants {
     static let baseImageURL = "https://image.tmdb.org/t/p/original"
     static let baseSearchURL = "https://api.themoviedb.org/3/search/movie"
     static let baseLowResImageURL = "https://image.tmdb.org/t/p/w500"
+    static let baseDiscoverURL = "https://api.themoviedb.org/3/discover/movie"
 }

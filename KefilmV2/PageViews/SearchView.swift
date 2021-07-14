@@ -55,6 +55,12 @@ struct SearchView: View {
                         LazyVGrid(columns:gridItems) {
                             ForEach(0...17,id:\.self) {id in
                                 GenreCard(color: ColorAndGenres().colors[id], genre: ColorAndGenres().genres[id])
+                                    .onTapGesture {
+                                        showingSheet.toggle()
+                                    }
+                                    .sheet(isPresented: $showingSheet) {
+                                        GenresView(id: ColorAndGenres().ids[id])
+                                            }
                             }
                         }
                     }
