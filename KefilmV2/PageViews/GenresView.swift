@@ -11,23 +11,43 @@ import SwiftUIPager
 struct GenresView: View {
     @StateObject var viewModel = GenresViewModel()
     @StateObject var page: Page = .first()
+    @Environment(\.dismiss) private var dismiss
     let id: Int
     var body: some View {
         GeometryReader { proxy in
             
             let size = proxy.size
-             
-            Pager(page: self.page, data: Array(0..<viewModel.genresResults.count),id: \.self) { index in
-                VStack(spacing:15) {
-                    CarouselCardView(image: viewModel.genresResults[index].safeImage, topOffset: 70 + 15)
-                            .frame(height:size.height)
+            
+            VStack(spacing:0){
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(.gray)
+                    .frame(width: size.width / 10, height: 8, alignment: .center)
+                    .padding(.top,16)
+                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                                        .onEnded({ value in
+                                            if value.translation.height > 0 {
+                                                dismiss()
+                                            }
+                                        }))
+                
+                Pager(page: self.page, data: Array(0..<viewModel.genresResults.count),id: \.self) { index in
+                    VStack(spacing:16) {
+                        CarouselCardView(image: viewModel.genresResults[index].safeImage, topOffset: 70 + 16)
+                                .frame(height:size.height - 32)
+                    }
+                }
+                .vertical()
+                .onAppear {
+                    viewModel.fetchMoviesWithGenres(genre: id)
                 }
             }
-            .vertical()
-            .onAppear {
-                viewModel.fetchMoviesWithGenres(genre: id)
-            }
         }
+    }
+    
+}
+struct GenresView_Previews: PreviewProvider {
+    static var previews: some View {
+        GenresView(id: 28)
     }
 }
 
@@ -55,15 +75,14 @@ struct CarouselCardView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: size.width - 30, height: size.height - 80)
-                        .cornerRadius(15)
+                        .frame(width: size.width - 32, height: size.height - 50)
+                        .cornerRadius(16)
                 } placeholder: {
                     Rectangle()
                         .fill(.blue)
                 }
-                //Image("wick")
             }
-            .padding(.horizontal,15)
+            .padding(.horizontal,16)
             .scaleEffect(minY < 0 ? scale : 1)
             .opacity(minY < 0 ? opacity : 1)
             .offset(y: minY < 0 ? -minY : 0)

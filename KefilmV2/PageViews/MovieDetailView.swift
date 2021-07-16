@@ -11,6 +11,7 @@ struct MovieDetailView: View {
     @StateObject var viewModel = MovieDetailViewModel()
     @StateObject var gallery = GalleryViewModel()
     @State var detailsLoaded = false
+    @Environment(\.dismiss) private var dismiss
     let movieID: Int
     var body: some View {
         ScrollView(showsIndicators:false){
@@ -18,6 +19,14 @@ struct MovieDetailView: View {
             if viewModel.model != nil {
             HStack(spacing:0) {
                 VStack {
+                        Button {
+                                dismiss()
+                        } label: {
+                            Image(systemName: "chevron.backward")
+                                .font(.system(size:24))
+                                .foregroundColor(.gray)
+                        }
+                        .offset(x: 0, y: -50)
                     Text("\(Int(viewModel.model!.rating))")
                         .font(.title3)
                         .foregroundColor(viewModel.model!.ratingColor)
@@ -41,6 +50,7 @@ struct MovieDetailView: View {
                         .font(.title3)
                 }
                 .frame(width:UIScreen.main.bounds.width - UIScreen.main.bounds.width / (3/2))
+                
                 VStack {
                     
                     AsyncImage(url: URL(string: Constants.baseLowResImageURL + viewModel.model!.poster_path)) { image in
