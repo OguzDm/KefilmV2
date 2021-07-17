@@ -79,7 +79,7 @@ struct CarouselCardView: View {
                         .cornerRadius(16)
                 } placeholder: {
                     Rectangle()
-                        .fill(.blue)
+                        .fill(.gray .opacity(0.5))
                 }
             }
             .padding(.horizontal,16)
