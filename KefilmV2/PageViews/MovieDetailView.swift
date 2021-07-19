@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieDetailView: View {
     @StateObject var viewModel = MovieDetailViewModel()
     @StateObject var gallery = GalleryViewModel()
+    @StateObject var crew = CrewViewModel()
     @State var detailsLoaded = false
     @Environment(\.dismiss) private var dismiss
     let movieID: Int
@@ -126,6 +127,21 @@ struct MovieDetailView: View {
                     gallery.fetchImages(with: movieID)
                 }
                 .frame(width: UIScreen.main.bounds.width, height: 225)
+                
+                ScrollView(.horizontal) {
+                    if !crew.cast.isEmpty {
+                        HStack {
+                            ForEach(crew.cast,id:\.self) { cast in
+                                if cast.known_for_department == "Acting" {
+                                    CrewMemberView(name: cast.name, character: cast.character, image: cast.safeImage)
+                                }
+                            }
+                        }
+                    }
+                }
+                .onAppear {
+                    crew.fetchCrew(id: movieID)
+                }
                 
             }
             .onAppear {
