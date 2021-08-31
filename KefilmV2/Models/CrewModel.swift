@@ -17,7 +17,6 @@ struct Cast: Codable, Hashable {
     let profile_path: String?
     let known_for_department: String
     
-    
     var safeImage: String {
         var imageURL = Constants.baseLowResImageURL
         if profile_path == nil {

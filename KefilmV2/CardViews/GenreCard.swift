@@ -40,6 +40,5 @@ struct GenreCard_Previews: PreviewProvider {
         HStack(spacing:0){
             GenreCard(color: .blue, genre: "Action", id: 28)
         }
-        
     }
 }

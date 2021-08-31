@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftUIVisualEffects
 
 struct PopularMovieCard: View {
-    
     struct Constants {
         static let cardSize: CGFloat = 225
         static let nameViewSize: CGFloat = 50
