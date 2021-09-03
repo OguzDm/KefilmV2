@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct SimilarMovieModel: Codable {
     let results: [Similar]
@@ -16,6 +17,7 @@ struct Similar: Codable {
     let title: String
     let release_date: String
     let poster_path: String
+    var offset: CGFloat = 0
     
     var releaseYear:String {
         let year = release_date.split(separator: "-").first?.description ?? "TBA"

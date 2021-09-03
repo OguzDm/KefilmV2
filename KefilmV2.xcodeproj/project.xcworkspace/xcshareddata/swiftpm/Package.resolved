@@ -2,7 +2,7 @@
   "object": {
     "pins": [
       {
-        "package": "swiftui-visual-effects",
+        "package": "SwiftUIVisualEffects",
         "repositoryURL": "https://github.com/lucasbrown/swiftui-visual-effects.git",
         "state": {
           "branch": null,

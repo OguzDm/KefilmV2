@@ -10,6 +10,7 @@ import Foundation
 class SimilarMovieViewModel: ObservableObject {
     
     @Published var movies = [Similar]()
+    @Published var swipedCard = 0
     
     func fetchSimilar(with id: Int) {
         

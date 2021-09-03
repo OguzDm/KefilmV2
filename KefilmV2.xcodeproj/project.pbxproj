@@ -174,7 +174,6 @@
 				B9821F0E267E883800D4F53B /* PopularMovieCard.swift */,
 				B9B6E5B3268FC90600C52109 /* GenreCard.swift */,
 				B970E03B26A3586B000A50B5 /* CrewMemberView.swift */,
-				B9A5183326DEC3F70017ED7D /* SimilarMovieView.swift */,
 			);
 			path = CardViews;
 			sourceTree = "<group>";
@@ -188,6 +187,7 @@
 				B95FF4E7267B79B500335FD5 /* NowPlayingView.swift */,
 				B95FF4D5267B43FB00335FD5 /* ContentView.swift */,
 				B93CA01D269E699E0019CAFC /* GenresView.swift */,
+				B9A5183326DEC3F70017ED7D /* SimilarMovieView.swift */,
 			);
 			path = PageViews;
 			sourceTree = "<group>";
