@@ -21,7 +21,6 @@ class Service : ObservableObject{
     
     func fetchMovies(endpoint : endpoint){
         
-        
         let requestString = Constants.baseURL + endpoint.rawValue + "?api_key=\(Constants.apiKey)" + "&page=\(currentPage)"
         guard let requestURL = URL(string: requestString) else {return}
         
