@@ -14,13 +14,8 @@ struct SimilarMovieModel: Codable {
 
 struct Similar: Codable {
     let id: Int
-    let title: String
-    let release_date: String
-    let poster_path: String
+    let poster_path: String?
     var offset: CGFloat = 0
     
-    var releaseYear:String {
-        let year = release_date.split(separator: "-").first?.description ?? "TBA"
-        return year
-    }
+    private enum CodingKeys: String, CodingKey{case id, poster_path}
 }

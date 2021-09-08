@@ -8,9 +8,11 @@
 import SwiftUI
 
 var width = UIScreen.main.bounds.width
+var similarHeight: CGFloat = 375
 
 struct SimilarMovieView: View {
     @StateObject var model = SimilarMovieViewModel()
+    var movieID: Int
     var body: some View {
         
         VStack{
@@ -18,20 +20,27 @@ struct SimilarMovieView: View {
                 ForEach(model.movies.indices.reversed(),id: \.self){index in
                     HStack {
                         
-                        Image(model.movies[index].poster_path)
-                            .resizable()
-                            .scaledToFit()
-                            .saturation(getSaturation(index: index))
-                            .blur(radius: getBlur(index: index))
-                            .cornerRadius(24)
-                            .frame(width: getCardWidth(index: index), height: getCardHeight(index: index))
-                            .offset(x: getCardOffset(index: index))
-                            .rotationEffect(.init(degrees: getCardRotation(index: index)))
-                        
+                        AsyncImage(url: URL(string: Constants.baseLowResImageURL + model.movies[index].poster_path!)) { image in
+                            
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .saturation(getSaturation(index: index))
+                                .blur(radius: getBlur(index: index))
+                                .cornerRadius(24)
+                                .frame(width: getCardWidth(index: index), height: getCardHeight(index: index))
+                                .offset(x: getCardOffset(index: index))
+                                .rotationEffect(.init(degrees: getCardRotation(index: index)))
+                            
+                        } placeholder: {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(.gray.opacity(0.7))
+                        }
+
                         Spacer(minLength: 60)
                         
                     }
-                    .frame(height:400)
+                    .frame(height:similarHeight)
                     .contentShape(Rectangle())
                     .offset(x: model.movies[index].offset)
                     .gesture(DragGesture(minimumDistance:0)
@@ -55,6 +64,9 @@ struct SimilarMovieView: View {
                     .shadow(color:Color.gray.opacity(0.6),radius: 2)
             }
             Spacer()
+        }
+        .onAppear {
+            model.fetchSimilar(with: movieID)
         }
     }
     
@@ -114,7 +126,7 @@ struct SimilarMovieView: View {
     }
     
     func getCardHeight(index: Int) -> CGFloat {
-        let height: CGFloat = 400
+        let height: CGFloat = similarHeight
         let cardHeight = index - model.swipedCard <= 4 ? CGFloat(index - model.swipedCard) * 35 : 70
         
         return height - cardHeight
@@ -122,17 +134,14 @@ struct SimilarMovieView: View {
     
     func getCardWidth(index: Int) -> CGFloat {
         let boxWidth = UIScreen.main.bounds.width - 60 - 60
-        
-        //let cardWidth = index <= 2 ? CGFloat(index) * 30 : 60
-        
         return boxWidth
     }
     
     func getCardOffset(index: Int) -> CGFloat {index - model.swipedCard <= 4 ? CGFloat(index - model.swipedCard) * 30 : 60}
 }
 
-struct SimilarMovieView_Previews: PreviewProvider {
-    static var previews: some View {
-        SimilarMovieView()
-    }
-}
+//struct SimilarMovieView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SimilarMovieView()
+//    }
+//}

@@ -143,6 +143,7 @@ struct MovieDetailView: View {
                     crew.fetchCrew(id: movieID)
                 }
                 
+                SimilarMovieView(movieID: movieID)
             }
             .onAppear {
                 viewModel.fetchMovieDetail(id: movieID)
