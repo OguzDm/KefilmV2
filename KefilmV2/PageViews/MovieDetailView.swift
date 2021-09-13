@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct MovieDetailView: View {
     @StateObject var viewModel = MovieDetailViewModel()
     @StateObject var gallery = GalleryViewModel()
     @StateObject var crew = CrewViewModel()
+    @StateObject var videos = VideoViewModel()
     @State var detailsLoaded = false
     @Environment(\.dismiss) private var dismiss
     let movieID: Int
@@ -141,6 +143,20 @@ struct MovieDetailView: View {
                 }
                 .onAppear {
                     crew.fetchCrew(id: movieID)
+                }
+                ScrollView(.horizontal){
+                    HStack{
+                        if !videos.videos.isEmpty {
+                            ForEach(videos.videos,id:\.self) { video in
+                                if video.site == "YouTube" {
+                                    VideoCard(videoID:video.key)
+                                }
+                            }
+                        }
+                    }
+                }
+                .onAppear {
+                    videos.fetchVideos(with: movieID)
                 }
                 
                 SimilarMovieView(movieID: movieID)
