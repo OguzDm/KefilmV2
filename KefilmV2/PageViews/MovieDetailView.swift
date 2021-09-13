@@ -99,7 +99,7 @@ struct MovieDetailView: View {
                     }
                 }
                 
-                ScrollView(.horizontal){
+                ScrollView(.horizontal,showsIndicators: false){
                     if !gallery.images.isEmpty {
                         HStack(spacing:0){ // Gallery
                             ForEach(gallery.images,id:\.self) { image in
@@ -128,7 +128,7 @@ struct MovieDetailView: View {
                 }
                 .frame(width: UIScreen.main.bounds.width, height: 225)
                 
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal,showsIndicators: false) {
                     if !crew.cast.isEmpty {
                         HStack {
                             ForEach(crew.cast,id:\.self) { cast in
