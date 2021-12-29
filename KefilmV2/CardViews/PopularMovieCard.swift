@@ -36,14 +36,12 @@ struct PopularMovieCard: View {
                 RoundedRectangle(cornerRadius: 16)
                     .fill(.gray.opacity(0.7))
             }
-
+            
             ZStack {
-                RoundedRectangle(cornerRadius: 8)
-                       .frame(width: 75, height: 35)
-                       .vibrancyEffect()
-                       .vibrancyEffectStyle(.quaternaryLabel)
-                       .background(.black .opacity(0.5))
-                       .cornerRadius(8)
+                RoundedRectangle(cornerRadius: 8,style: .continuous)
+                    .fill(.ultraThinMaterial)
+                    .frame(width: 75, height: 35)
+                
                 HStack(spacing: 4){
                     Image("trending")
                         .resizable()
@@ -53,24 +51,21 @@ struct PopularMovieCard: View {
                         .font(.caption)
                         .foregroundColor(.white)
                 }
-            
+                
             }
             .padding(.bottom, Constants.cardSize - 50)
             .padding(.leading,UIScreen.main.bounds.width - 125)
             ZStack {
-                Rectangle()
-                    .cornerRadius(16, corners: [.bottomLeft,.bottomRight])
-                    .vibrancyEffect()
-                    .vibrancyEffectStyle(.quaternaryLabel)
-                    .background(.black .opacity(0.5))
-                    .cornerRadius(16)
+                
                 Text(name)
                     .font(.title3)
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 70,alignment: .leading)
                     .textSelection(.enabled)
+                
             }
             .frame(width: UIScreen.main.bounds.width - 32, height: Constants.nameViewSize)
+            .background(.ultraThinMaterial,in: RoundedRectangle(cornerRadius: 16,style: .continuous))
             .padding(.top,Constants.cardSize - Constants.nameViewSize)
         }
         .fullScreenCover(isPresented: $showingSheet) {
@@ -80,3 +75,9 @@ struct PopularMovieCard: View {
     }
 }
 
+struct PopularMovieCard_Preview: PreviewProvider {
+    static var previews: some View {
+        PopularMovieCard(name: "blabla", imageURL: "https://www.themoviedb.org/t/p/original/ncEsesgOJDNrTUED89hYbA117wo.jpg", popularity: "5341", id: 1)
+            .preferredColorScheme(.dark)
+    }
+}
