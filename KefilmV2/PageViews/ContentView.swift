@@ -9,25 +9,53 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var selectedTab: Tab = .nowPlaying
     var body: some View {
+        
+        ZStack(alignment: .bottom)  {
+            
+            Group{
+                switch selectedTab {
+                case .nowPlaying:
+                    HomePageView()
+                case .popular:
+                    PopularMoviesView()
+                case .search:
+                    SearchView()
+                }
+               
+            }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
+            
+            HStack {
+                ForEach(tabItems) { item in
+                    Button {
+                        selectedTab = item.tab
+                    } label: {
+                        VStack(spacing:0) {
+                            
+                            Image(systemName: item.icon)
+                                .symbolVariant(.fill)
+                                .scaleEffect(1.25)
+                                .font(.body.bold())
+                                .frame(width:44,height: 29)
+                            
+                            Text(item.text)
+                                .font(.caption2)
+                                .lineLimit(1)
 
-        TabView {
-            NowPlayingView()
-                .tabItem {
-                    Label("Now Playing",systemImage: "film")
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .foregroundStyle(selectedTab == item.tab ? .primary : .secondary)
                 }
-            PopularMoviesView()
-                .tabItem{
-                    Label("Popular",systemImage: "star.fill")
-                }
-            SearchView()
-                .tabItem{
-                    Label("Search",systemImage: "magnifyingglass")
-                }
-        }
-        .accentColor(.white)
-        .onAppear() {
-            UITabBar.appearance().backgroundColor = .systemBackground
+            }
+            .padding(.horizontal,8)
+            .padding(.top,14)
+            .frame(height: 88, alignment: .top)
+            .background(.ultraThinMaterial,in: RoundedRectangle(cornerRadius: 34,style: .continuous))
+            .frame(maxHeight: .infinity,alignment: .bottom)
+            .ignoresSafeArea()
         }
         
     }

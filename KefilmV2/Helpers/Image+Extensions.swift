@@ -15,6 +15,7 @@ extension Image {
             .resizable()
             .scaledToFill()
             .frame(width: geo.size.width, height: geo.size.height)
+            .padding(.all,24)
             .clipped()
         }
     }
