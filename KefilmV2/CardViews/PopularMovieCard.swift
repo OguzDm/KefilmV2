@@ -49,7 +49,7 @@ struct PopularMovieCard: View {
                         .foregroundColor(.orange)
                     Text(popularity)
                         .font(.caption)
-                        .foregroundColor(.white)
+                        .foregroundColor(.primary.opacity(0.75))
                 }
                 
             }
@@ -59,7 +59,7 @@ struct PopularMovieCard: View {
                 
                 Text(name)
                     .font(.title3)
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary.opacity(0.75))
                     .frame(width: UIScreen.main.bounds.width - 70,alignment: .leading)
                     .textSelection(.enabled)
                 
