@@ -25,6 +25,7 @@ struct CrewMemberView: View {
                     Circle()
                         .fill(.gray)
                         .frame(width: 100, height: 100, alignment: .center)
+                        .overlay(ProgressView())
                 }
                 Text(name)
                 Text(character)
