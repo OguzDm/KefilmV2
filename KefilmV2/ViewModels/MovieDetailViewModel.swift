@@ -157,7 +157,7 @@ final class MovieDetailViewModel: ObservableObject {
             do {
                 let videos = try JSONDecoder().decode(VideoModel.self, from: data)
                 DispatchQueue.main.async {
-                    self?.videos = videos.results
+                    self?.videos = videos.trailers
                 }
             }
             catch(let error) {

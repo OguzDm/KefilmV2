@@ -58,6 +58,6 @@ struct MovieDetailModel: Codable {
     }
 }
 
-struct Genres: Codable {
+struct Genres: Codable,Hashable {
     let name: String
 }

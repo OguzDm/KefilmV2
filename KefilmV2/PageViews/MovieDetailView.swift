@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import WrappingStack
 
 struct MovieDetailView: View {
     @StateObject var viewModel = MovieDetailViewModel()
@@ -19,7 +20,7 @@ struct MovieDetailView: View {
             
             ScrollView(showsIndicators:false){
                 
-                VStack {
+                VStack(spacing: 0) {
                     if viewModel.loadingState == .ready {
                         HStack(spacing:0) {
                             VStack {                //Left Side Details
@@ -34,30 +35,43 @@ struct MovieDetailView: View {
                                                     .foregroundColor(.primary))
 
                                 }
+                                
                                 .padding(.top,16)
                                 
+                                Button {
+                                    dismiss()
+                                } label: {
+                                    Circle()
+                                        .fill(.ultraThinMaterial)
+                                        .frame(width: 40, height: 40)
+                                        .overlay(Image(systemName: "heart")
+                                                    .font(.system(size:24))
+                                                    .foregroundColor(.primary))
+
+                                }
+                                .padding(.top,16)
+                                
+                                if !viewModel.videos.isEmpty {
+                                    Button {
+                                        if UIApplication.shared.canOpenURL(URL(string: Constants.baseYoutubeURL + viewModel.videos.first!.key)!){
+                                            UIApplication.shared.openURL(URL(string: Constants.baseYoutubeURL + viewModel.videos.first!.key)!)
+                                           } else{
+                                               UIApplication.shared.openURL(URL(string: Constants.baseYoutubeURL + viewModel.videos.first!.key)!)
+                                           }
+                                    } label: {
+                                        Circle()
+                                            .fill(.ultraThinMaterial)
+                                            .frame(width: 40, height: 40)
+                                            .overlay(Image(systemName: "play.fill")
+                                                        .font(.system(size:24))
+                                                        .foregroundColor(.primary))
+
+                                    }
+                                    .padding(.top,16)
+                                }
+                          
                                 Spacer()
-//                                Text("\(Int(viewModel.model!.rating))")
-//                                    .font(.title3)
-//                                    .foregroundColor(viewModel.model!.ratingColor)
-//                                    .padding(.all, 4)
-//                                    .overlay(
-//                                        RoundedRectangle(cornerRadius: 4)
-//                                            .stroke()
-//                                            .fill(viewModel.model!.ratingColor)
-//                                    )
-//                                Divider()
-//                                    .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-//                                Text(viewModel.model!.releaseYear)
-//                                    .font(.title3)
-//                                Divider()
-//                                    .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-//                                Text(viewModel.model!.runTimeText)
-//                                    .font(.title3)
-//                                Divider()
-//                                    .scaleEffect(x: 0.5, y: 2.2, anchor: .center)
-//                                Text("$\(viewModel.model!.budget ?? 0)")
-//                                    .font(.title3)
+                                
                             }
                             .frame(width:proxy.size.width - proxy.size.width / (3/2))
                             
@@ -89,18 +103,33 @@ struct MovieDetailView: View {
                             VStack{             //Dummy VStack
                             }
                             .frame(width:proxy.size.width - proxy.size.width / (3/2))
-                            VStack(spacing:0) { // Overview genres and title
+                            VStack(alignment: .leading,spacing:4) { // Overview genres and title
                                 Text(viewModel.model!.original_title)
                                     .font(.title2)
                                     .frame(width: proxy.size.width / (3/2),alignment: .leading)
                                     .padding(.bottom,8)
                                     .padding(.top,16)
                                     .textSelection(.enabled)
-                                Text(viewModel.model!.genresText)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray).opacity(0.5)
-                                    .frame(width: proxy.size.width / (3/2),alignment: .leading)
-                                    .padding(.bottom,8)
+                                
+                             
+                                HStack{
+                                    Text(viewModel.model!.releaseYear)
+                                    Circle()
+                                        .fill(.gray)
+                                        .frame(width: 4, height: 4)
+                                    Text(viewModel.model!.runTimeText)
+                                }
+                                    
+                                WrappingHStack(id:\.self,alignment: .leading,horizontalSpacing: 4,verticalSpacing: 4) {
+                                    ForEach(viewModel.model!.genres,id:\.self) { genre in
+                                            Text(genre.name)
+                                                .padding(.all,4)
+                                                .background(.ultraThinMaterial)
+                                                .cornerRadius(8)
+                                        
+                                    }
+                                }
+                                .padding(.trailing,8)
                                 Text(viewModel.model!.overview)
                                     .font(.body)
                                     .fixedSize(horizontal: false, vertical: true)
@@ -132,10 +161,9 @@ struct MovieDetailView: View {
                                 }
                             }
                         }
-                        .padding(.top,16)
                         .padding(.leading,16)
-                        .frame(width: proxy.size.width, height: 225)
-                        
+                        .frame(width: proxy.size.width, height: 160)
+                        .padding(.vertical,16)
                         ScrollView(.horizontal,showsIndicators: false) {
                             if !viewModel.cast.isEmpty {
                                 LazyHStack(spacing:0){
@@ -148,22 +176,23 @@ struct MovieDetailView: View {
                             }
                         }
                         .padding(.leading,16)
-                        ScrollView(.horizontal,showsIndicators: false){
-                            LazyHStack(spacing:8){
-                                if !viewModel.videos.isEmpty {
-                                    ForEach(viewModel.videos,id:\.self) { video in
-                                        if video.site == "YouTube" {
-                                            VideoCard(videoID:video.key,proxy: proxy)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        
-                        //.padding(.bottom,32)
-                        .padding(.leading,16)
-                        .frame(width: proxy.size.width, height: 250)
                         .padding(.bottom,32)
+//                        ScrollView(.horizontal,showsIndicators: false){
+//                            LazyHStack(spacing:8){
+//                                if !viewModel.videos.isEmpty {
+//                                    ForEach(viewModel.videos,id:\.self) { video in
+//                                        if video.site == "YouTube" {
+//                                            VideoCard(videoID:video.key,proxy: proxy)
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                        }
+//
+//                        //.padding(.bottom,32)
+//                        .padding(.leading,16)
+//                        .frame(width: proxy.size.width, height: 250)
+//                        .padding(.bottom,32)
                         //SimilarMovieView(movieID: movieID)
                     }
                     
@@ -177,7 +206,7 @@ struct MovieDetailView: View {
                 
                 .frame(maxWidth:proxy.size.width,maxHeight:.infinity)
             }
-            .background(viewModel.backgroundColor.brightness(colorScheme == .dark ? -0.25: 0))
+            .background(viewModel.backgroundColor)
             .edgesIgnoringSafeArea(.all)
         }
         

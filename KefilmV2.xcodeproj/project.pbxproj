@@ -10,6 +10,7 @@
 		121E67F0277B2C7500698C7B /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121E67EF277B2C7500698C7B /* HomePageView.swift */; };
 		121E67F2277C8DB100698C7B /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121E67F1277C8DB100698C7B /* Tab.swift */; };
 		121E67F4277E502900698C7B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121E67F3277E502900698C7B /* Networking.swift */; };
+		128112EF27811EDF00B9CB1D /* WrappingStack in Frameworks */ = {isa = PBXBuildFile; productRef = 128112EE27811EDF00B9CB1D /* WrappingStack */; };
 		B92ECD3A26907D1000F585A8 /* ColorAndGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ECD3926907D1000F585A8 /* ColorAndGenres.swift */; };
 		B9394E2A26EF64C500C20362 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9394E2926EF64C500C20362 /* VideoModel.swift */; };
 		B9394E2E26EF7EE600C20362 /* VideoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9394E2D26EF7EE600C20362 /* VideoCard.swift */; };
@@ -25,7 +26,6 @@
 		B95FF4E2267B447600335FD5 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4E1267B447600335FD5 /* Service.swift */; };
 		B95FF4E4267B480500335FD5 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4E3267B480500335FD5 /* MovieModel.swift */; };
 		B95FF4E6267B6BDF00335FD5 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FF4E5267B6BDF00335FD5 /* MovieCardView.swift */; };
-		B95FF4EE267BD1D100335FD5 /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = B95FF4ED267BD1D100335FD5 /* SwiftUIPager */; };
 		B970E03C26A3586B000A50B5 /* CrewMemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B970E03B26A3586B000A50B5 /* CrewMemberView.swift */; };
 		B97260E52686408800312F86 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97260E42686408800312F86 /* SearchView.swift */; };
 		B97260E726864A6A00312F86 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97260E626864A6A00312F86 /* RoundedCorner.swift */; };
@@ -33,7 +33,6 @@
 		B97260ED26864D6600312F86 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97260EC26864D6600312F86 /* SearchViewModel.swift */; };
 		B9821F0F267E883800D4F53B /* PopularMovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9821F0E267E883800D4F53B /* PopularMovieCard.swift */; };
 		B99D551E267F46BC002D9715 /* PopularMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99D551D267F46BC002D9715 /* PopularMoviesView.swift */; };
-		B99D5521267F5FE0002D9715 /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B99D5520267F5FE0002D9715 /* SwiftUIVisualEffects */; };
 		B9A5183026DEBD630017ED7D /* SimilarMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5182F26DEBD630017ED7D /* SimilarMovieModel.swift */; };
 		B9A5183226DEBEDA0017ED7D /* SimilarMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5183126DEBEDA0017ED7D /* SimilarMovieViewModel.swift */; };
 		B9A5183426DEC3F70017ED7D /* SimilarMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5183326DEC3F70017ED7D /* SimilarMovieView.swift */; };
@@ -88,8 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B95FF4EE267BD1D100335FD5 /* SwiftUIPager in Frameworks */,
-				B99D5521267F5FE0002D9715 /* SwiftUIVisualEffects in Frameworks */,
+				128112EF27811EDF00B9CB1D /* WrappingStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,8 +216,7 @@
 			);
 			name = KefilmV2;
 			packageProductDependencies = (
-				B95FF4ED267BD1D100335FD5 /* SwiftUIPager */,
-				B99D5520267F5FE0002D9715 /* SwiftUIVisualEffects */,
+				128112EE27811EDF00B9CB1D /* WrappingStack */,
 			);
 			productName = KefilmV2;
 			productReference = B95FF4D0267B43FB00335FD5 /* KefilmV2.app */;
@@ -250,8 +247,7 @@
 			);
 			mainGroup = B95FF4C7267B43FB00335FD5;
 			packageReferences = (
-				B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
-				B99D551F267F5FE0002D9715 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */,
+				128112ED27811EDF00B9CB1D /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */,
 			);
 			productRefGroup = B95FF4D1267B43FB00335FD5 /* Products */;
 			projectDirPath = "";
@@ -517,34 +513,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+		128112ED27811EDF00B9CB1D /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
+			repositoryURL = "https://github.com/diniska/swiftui-wrapping-stack";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 2.3.0;
-			};
-		};
-		B99D551F267F5FE0002D9715 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lucasbrown/swiftui-visual-effects.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.3;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B95FF4ED267BD1D100335FD5 /* SwiftUIPager */ = {
+		128112EE27811EDF00B9CB1D /* WrappingStack */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B95FF4EC267BD1D100335FD5 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
-			productName = SwiftUIPager;
-		};
-		B99D5520267F5FE0002D9715 /* SwiftUIVisualEffects */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B99D551F267F5FE0002D9715 /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */;
-			productName = SwiftUIVisualEffects;
+			package = 128112ED27811EDF00B9CB1D /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */;
+			productName = WrappingStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

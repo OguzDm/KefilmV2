@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import SwiftUIPager
 
 struct GenresView: View {
     @StateObject var viewModel = GenresViewModel()
-    @StateObject var page: Page = .first()
     @Environment(\.dismiss) private var dismiss
     let id: Int
     var body: some View {
@@ -30,16 +28,6 @@ struct GenresView: View {
                                             }
                                         }))
                 
-                Pager(page: self.page, data: Array(0..<viewModel.genresResults.count),id: \.self) { index in
-                    VStack(spacing:16) {
-                        CarouselCardView(image: viewModel.genresResults[index].safeImage, topOffset: 70 + 16)
-                                .frame(height:size.height - 32)
-                    }
-                }
-                .vertical()
-                .onAppear {
-                    viewModel.fetchMoviesWithGenres(genre: id)
-                }
             }
         }
     }

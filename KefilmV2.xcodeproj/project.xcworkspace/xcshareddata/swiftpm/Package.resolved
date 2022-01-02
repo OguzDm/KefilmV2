@@ -2,21 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "SwiftUIVisualEffects",
-        "repositoryURL": "https://github.com/lucasbrown/swiftui-visual-effects.git",
+        "package": "WrappingStack",
+        "repositoryURL": "https://github.com/diniska/swiftui-wrapping-stack",
         "state": {
           "branch": null,
-          "revision": "b26f8cebd55ff60ed8953768aa818dfb005b5838",
-          "version": "1.0.3"
-        }
-      },
-      {
-        "package": "SwiftUIPager",
-        "repositoryURL": "https://github.com/fermoya/SwiftUIPager.git",
-        "state": {
-          "branch": null,
-          "revision": "1086365701cdb685820875789d14ef8602271730",
-          "version": "2.3.0"
+          "revision": "530e1d24155bc272af461da4cc1ed25ecce9e3ab",
+          "version": "1.0.1"
         }
       }
     ]
