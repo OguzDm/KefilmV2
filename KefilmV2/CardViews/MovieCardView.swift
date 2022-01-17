@@ -62,13 +62,13 @@ struct MovieCardView: View {
                     }
                     
                     Text(name)
-                        .font(.system(size: 20))
-                        .foregroundColor(.white)
+                        .font(.avenirNext(size: 20))
+                        .foregroundColor(.primary)
                         .textSelection(.enabled)
                         .padding(.top,8)
             }
             .fullScreenCover(isPresented: $showingSheet) {
-                MovieDetailView(movieID: id)
+                DetailPageView(movieID: id)
             }
             
         }

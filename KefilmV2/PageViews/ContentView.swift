@@ -41,7 +41,7 @@ struct ContentView: View {
                                 .frame(width:44,height: 29)
                             
                             Text(item.text)
-                                .font(.caption2)
+                                .font(.avenirNext(size: 14))
                                 .lineLimit(1)
 
                         }
@@ -53,7 +53,7 @@ struct ContentView: View {
             .padding(.horizontal,8)
             .padding(.top,14)
             .frame(height: 88, alignment: .top)
-            .background(.ultraThinMaterial,in: RoundedRectangle(cornerRadius: 34,style: .continuous))
+            .background(.ultraThinMaterial,in: Rectangle())
             .frame(maxHeight: .infinity,alignment: .bottom)
             .ignoresSafeArea()
         }

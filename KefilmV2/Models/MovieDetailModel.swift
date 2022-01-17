@@ -15,6 +15,7 @@ struct MovieDetailModel: Codable {
     let runtime: Int?
     let vote_average: Double
     let poster_path: String
+    let backdrop_path: String
     let budget: Int?
     let genres: [Genres]
     

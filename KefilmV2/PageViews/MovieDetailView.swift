@@ -73,7 +73,7 @@ struct MovieDetailView: View {
                                 Spacer()
                                 
                             }
-                            .frame(width:proxy.size.width - proxy.size.width / (3/2))
+                            .frame(width:proxy.size.width - proxy.size.width / (3/2.25))
                             
                             VStack { // Poster
                                 
@@ -81,8 +81,8 @@ struct MovieDetailView: View {
                                     image
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: proxy.size.width / (3/2),height: proxy.size.height / 2)
-                                        .cornerRadius(96, corners: .bottomLeft)
+                                        .frame(width: proxy.size.width / (3/2.25),height: proxy.size.height / 2)
+                                        .cornerRadius(106, corners: .bottomLeft)
                                         .onAppear {
                                             viewModel.poster = image
                                         }
@@ -90,23 +90,23 @@ struct MovieDetailView: View {
                                     Rectangle()
                                         .fill(.gray.opacity(0.5))
                                         .scaledToFill()
-                                        .frame(width: proxy.size.width / (3/2),height: proxy.size.height / 2)
-                                        .cornerRadius(96, corners: .bottomLeft)
+                                        .frame(width: proxy.size.width / (3/2.25),height: proxy.size.height / 2)
+                                        .cornerRadius(106, corners: .bottomLeft)
                                         .overlay(ProgressView())
                                 }
                             }
-                            .frame(width: proxy.size.width / (3/2))
+                            .frame(width: proxy.size.width / (3/2.25))
                         }.frame(width: proxy.size.width)
                             .edgesIgnoringSafeArea(.top)
                            
                         HStack {
                             VStack{             //Dummy VStack
                             }
-                            .frame(width:proxy.size.width - proxy.size.width / (3/2))
+                            .frame(width:proxy.size.width - proxy.size.width / (3/2.25))
                             VStack(alignment: .leading,spacing:4) { // Overview genres and title
                                 Text(viewModel.model!.original_title)
                                     .font(.title2)
-                                    .frame(width: proxy.size.width / (3/2),alignment: .leading)
+                                    .frame(width: proxy.size.width / (3/2.25),alignment: .leading)
                                     .padding(.bottom,8)
                                     .padding(.top,16)
                                     .textSelection(.enabled)
@@ -133,11 +133,11 @@ struct MovieDetailView: View {
                                 Text(viewModel.model!.overview)
                                     .font(.body)
                                     .fixedSize(horizontal: false, vertical: true)
-                                    .frame(width: proxy.size.width / (3/2),alignment: .leading)
+                                    .frame(width: proxy.size.width / (3/2.25),alignment: .leading)
                                     .textSelection(.enabled)
                                 
                             }
-                            .frame(width: proxy.size.width / (3/2))
+                            .frame(width: proxy.size.width / (3/2.25))
                         }
                         
                         ScrollView(.horizontal,showsIndicators: false){

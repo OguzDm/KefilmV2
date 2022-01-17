@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIVisualEffects
 
 struct PopularMovieCard: View {
     struct Constants {
@@ -17,6 +16,7 @@ struct PopularMovieCard: View {
     var imageURL: String
     var popularity: String
     var id : Int
+    let proxy: GeometryProxy
     @State private var showingSheet = false
     var body: some View {
         
@@ -25,7 +25,7 @@ struct PopularMovieCard: View {
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width - 32, height: Constants.cardSize, alignment: .center)
+                    .frame(width: proxy.size.width - 32, height: Constants.cardSize, alignment: .center)
                     .clipped()
                     .cornerRadius(16)
                     .onTapGesture {
@@ -48,36 +48,38 @@ struct PopularMovieCard: View {
                         .frame(width:25,height: 25)
                         .foregroundColor(.orange)
                     Text(popularity)
-                        .font(.caption)
+                        .font(.avenirNext(size: 14))
                         .foregroundColor(.primary.opacity(0.75))
                 }
                 
             }
             .padding(.bottom, Constants.cardSize - 50)
-            .padding(.leading,UIScreen.main.bounds.width - 125)
+            .padding(.leading,proxy.size.width - 125)
             ZStack {
                 
                 Text(name)
-                    .font(.title3)
+                    .font(.avenirNext(size: 18))
                     .foregroundColor(.primary.opacity(0.75))
-                    .frame(width: UIScreen.main.bounds.width - 70,alignment: .leading)
+                    .frame(width: proxy.size.width - 70,alignment: .leading)
                     .textSelection(.enabled)
                 
             }
-            .frame(width: UIScreen.main.bounds.width - 32, height: Constants.nameViewSize)
+            .frame(width: proxy.size.width - 32, height: Constants.nameViewSize)
             .background(.ultraThinMaterial,in: RoundedRectangle(cornerRadius: 16,style: .continuous))
             .padding(.top,Constants.cardSize - Constants.nameViewSize)
         }
+        .frame(width: proxy.size.width - 32, height: Constants.cardSize, alignment: .center)
         .fullScreenCover(isPresented: $showingSheet) {
-            MovieDetailView(movieID: id)
+            withAnimation {
+                DetailPageView(movieID: id)
+            }
         }
-        .frame(width: UIScreen.main.bounds.width - 32, height: Constants.cardSize, alignment: .center)
     }
 }
 
-struct PopularMovieCard_Preview: PreviewProvider {
-    static var previews: some View {
-        PopularMovieCard(name: "blabla", imageURL: "https://www.themoviedb.org/t/p/original/ncEsesgOJDNrTUED89hYbA117wo.jpg", popularity: "5341", id: 1)
-            .preferredColorScheme(.dark)
-    }
-}
+//struct PopularMovieCard_Preview: PreviewProvider {
+//    static var previews: some View {
+//        PopularMovieCard(name: "blabla", imageURL: "https://www.themoviedb.org/t/p/original/ncEsesgOJDNrTUED89hYbA117wo.jpg", popularity: "5341", id: 1)
+//            .preferredColorScheme(.dark)
+//    }
+//}
