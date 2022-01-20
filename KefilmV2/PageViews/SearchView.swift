@@ -16,7 +16,7 @@ struct SearchView: View {
     var body: some View {
             VStack{
                 ZStack {
-                    RoundedRectangle(cornerRadius: 16)
+                    RoundedRectangle(cornerRadius: 8)
                         .fill(.quaternary)
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -58,6 +58,7 @@ struct SearchView: View {
                     }
                 }
             }
+            .padding(.bottom,56)
             Spacer()
     
     }
