@@ -18,6 +18,7 @@ struct MovieDetailModel: Codable {
     let backdrop_path: String
     let budget: Int?
     let genres: [Genres]
+    let tagline: String
     
     var releaseYear:String {
         let year = release_date.split(separator: "-").first?.description ?? "TBA"

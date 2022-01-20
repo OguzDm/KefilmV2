@@ -16,4 +16,8 @@ extension Font {
     static func avenirNextRegular(size: Int) -> Font {
         return Font.custom("AvenirNext-Regular", size: CGFloat(size))
     }
+    
+    static func avenirNextItalic(size: Int) -> Font{
+        return Font.custom("AvenirNext-Italic",size: CGFloat(size))
+    }
 }

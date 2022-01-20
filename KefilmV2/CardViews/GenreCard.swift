@@ -20,7 +20,7 @@ struct GenreCard: View {
                         .cornerRadius(8)
                         .overlay( RoundedRectangle(cornerRadius: 8)
                                     .fill(color)
-                                    .opacity(0.5))
+                                    .opacity(0.5).brightness(-0.5))
                         .onTapGesture {
                             showingSheet.toggle()
                         }

@@ -14,41 +14,39 @@ struct SearchView: View {
     @State private var showingSheet = false
     private let gridItems = [GridItem(.flexible()),GridItem(.flexible())]
     var body: some View {
-        VStack{
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .padding(.leading,8)
-                TextField("Search for a Movie",
-                          text: $viewModel.query,
-                          onCommit: {
-                    self.performSearch()
-                })
-                    .textFieldStyle(.plain)
-                    .padding(.top,8)
-                    .padding(.bottom,8)
-            }
-            .padding(.leading,12)
-            .padding(.trailing,12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke()
-                    .fill(.gray.opacity(0.5))
-                    .padding(.leading,8)
-                    .padding(.trailing,8)
-            )
-                
             VStack{
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.quaternary)
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                        TextField("Search", text: $viewModel.query)
+                            .onChange(of: viewModel.query) { newValue in
+                                viewModel.searchRequest()
+                            }
+                    }
+                    .padding(.leading,8)
+                    
+                }
+                .frame(height:36)
+                .padding(.horizontal)
+                .padding(.vertical,8)
+                
                 if !viewModel.searchResults.isEmpty {
                     List{
                         ForEach(self.viewModel.searchResults, id:\.self) { movie in
-                            Button(movie.title) {
-                                showingSheet.toggle()
-                            }
+                            Text(movie.title)
+                                .font(.avenirNext(size: 16))
+                                .onTapGesture {
+                                    showingSheet.toggle()
+                                }
                             .fullScreenCover(isPresented: $showingSheet) {
-                                        MovieDetailView(movieID: movie.id)
+                                        DetailPageView(movieID: movie.id)
                                     }
                         }
                     }
+                   
                 }
                 else {
                     ScrollView{
@@ -60,9 +58,8 @@ struct SearchView: View {
                     }
                 }
             }
-            .padding(.top,8)
             Spacer()
-        }
+    
     }
     func performSearch() {
         viewModel.searchRequest()

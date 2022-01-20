@@ -131,11 +131,15 @@ struct DetailPageView: View {
                                             }
                                         }
                                     }
-                                   
+                                    
+                                    Text(viewModel.model?.tagline ?? "-")
+                                        .font(.avenirNextItalic(size: 20))
+                                        .fontWeight(.ultraLight)
                                     
                                     HStack {
                                         ForEach(viewModel.model!.genres,id:\.self) { genre in
                                                 Text(genre.name)
+                                                .font(.avenirNext(size: 16))
                                                     .padding(.all,4)
                                                     .background(.ultraThinMaterial)
                                                     .cornerRadius(8)
@@ -150,7 +154,6 @@ struct DetailPageView: View {
                                 
                             }
                            
-                            
                             Text(viewModel.model?.overview ?? "-")
                                 .lineLimit(nil)
                                 .font(.avenirNextRegular(size: 17))
